@@ -1,0 +1,44 @@
+/* src/pages/BlogPostPage.css */
+.blog-post-page {
+    max-width: 800px; /* Optimal reading width */
+    margin: 4rem auto;
+}
+
+.blog-post-page h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.post-meta {
+    color: #aaa;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Style content that comes from the Django admin's text editor */
+.post-content h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.post-content a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.post-content a:hover {
+    border-bottom: 2px solid var(--accent-color);
+}

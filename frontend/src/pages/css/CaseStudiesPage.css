@@ -1,0 +1,121 @@
+/* src/pages/CaseStudiesPage.css */
+.case-studies-page .page-header {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.case-studies-page h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.case-studies-page .page-header p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.studies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem; /* More space between entries */
+}
+
+.study-entry {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s forwards ease-out;
+}
+
+.study-entry.reverse {
+    grid-template-areas: "content image";
+}
+
+.study-entry.reverse .study-image {
+    grid-area: image;
+}
+.study-entry.reverse .study-content {
+    grid-area: content;
+}
+
+.study-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease;
+}
+
+.study-image img:hover {
+    transform: scale(1.05);
+}
+
+.study-content h3 {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.study-content h2 {
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.problem-solution h4 {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 1rem;
+}
+
+.problem-solution p {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    padding-left: 1.2rem;
+}
+
+.results-box {
+    background: rgba(74, 74, 252, 0.1);
+    border-left: 4px solid var(--secondary-color);
+    padding: 1rem 1.5rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+}
+
+.results-box p {
+    margin: 0;
+    color: #ccc;
+}
+
+.results-box strong {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 992px) {
+    .study-entry,
+    .study-entry.reverse {
+        grid-template-columns: 1fr;
+        grid-template-areas: initial !important;
+    }
+    .study-entry .study-image,
+    .study-entry .study-content {
+        grid-area: initial !important;
+    }
+    .study-entry.reverse {
+        flex-direction: column-reverse; /* Keep image on top on mobile */
+    }
+}

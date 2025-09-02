@@ -1,0 +1,80 @@
+/* src/components/ChatbotShowcase.css */
+.chatbot-showcase {
+  padding: 4rem 0;
+  background-color: var(--primary-color);
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Give more space to text */
+  align-items: center;
+  gap: 4rem;
+}
+
+/* --- Left Column: Demo --- */
+.showcase-demo-wrapper {
+  /* This creates the offset effect you wanted */
+  transform: translateX(-20px) rotate(-3deg);
+}
+
+/* --- Right Column: Benefits --- */
+.showcase-benefits h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.showcase-benefits p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+.showcase-benefits ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.showcase-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* Custom bullet points using pseudo-elements */
+.showcase-benefits li::before {
+  content: '✅';
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-top: 2px;
+}
+
+.showcase-benefits li strong {
+  display: block;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+/* --- Responsive Design for Showcase --- */
+@media (max-width: 992px) {
+  .showcase-grid {
+    grid-template-columns: 1fr; /* Stack on mobile/tablet */
+    gap: 3rem;
+  }
+
+  .showcase-demo-wrapper {
+    transform: translateX(0) rotate(0); /* Reset the offset */
+    max-width: 450px; /* Constrain width when stacked */
+    margin: 0 auto;
+  }
+
+  .showcase-benefits {
+    text-align: center;
+  }
+  .showcase-benefits li {
+    text-align: left; /* Keep list text aligned left */
+  }
+}

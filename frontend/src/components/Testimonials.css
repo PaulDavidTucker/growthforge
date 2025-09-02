@@ -1,0 +1,69 @@
+/* src/components/Testimonials.css */
+.testimonials {
+    padding: 4rem 0;
+    background-color: var(--primary-color);
+}
+
+.testimonials h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.testimonial-scroller {
+    display: flex;
+    overflow-x: auto; /* This makes it scroll horizontally */
+    padding: 2rem 0;
+    gap: 2rem;
+    /* Hides the scrollbar for a cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+.testimonial-scroller::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+.testimonial-card {
+    flex: 0 0 350px; /* Each card has a fixed width, won't shrink or grow */
+    background: var(--dark-background);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid #333;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-out; /* Use the animation from the blog */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stars {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+.stars span {
+    color: #555; /* Empty star color */
+}
+.stars span.filled {
+    color: var(--accent-color);
+}
+
+.quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    min-height: 100px; /* Helps align the cards */
+}
+
+.client strong {
+    color: var(--text-color);
+    display: block;
+    font-size: 1.1rem;
+}
+.client {
+    color: #aaa;
+}

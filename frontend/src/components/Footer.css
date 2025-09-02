@@ -1,0 +1,101 @@
+/* src/components/Footer.css */
+.footer {
+    background-color: var(--dark-background);
+    color: #aaa;
+    padding: 4rem 0;
+    border-top: 1px solid #333;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1fr; /* 3-column layout */
+    gap: 3rem; /* Spacing between columns */
+    align-items: start;
+}
+
+/* --- Column 1: About --- */
+.footer-about h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.footer-about p {
+    margin: 0.5rem 0;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+}
+
+/* --- Column 3: Social --- */
+.footer-social {
+    text-align: left;
+}
+
+.footer-social h4 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: #aaa;
+    font-size: 1.8rem;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* --- Responsive Design for Footer --- */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns on tablets */
+        /* Place the social links below the 'about' section */
+        grid-template-areas:
+            "about subscribe"
+            "social subscribe";
+    }
+    .footer-about {
+        grid-area: about;
+    }
+    .footer-subscribe {
+        grid-area: subscribe;
+    }
+    .footer-social {
+        grid-area: social;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack everything on mobile */
+        grid-template-areas: initial; /* Reset areas */
+        text-align: center;
+    }
+
+    .footer-about,
+    .footer-subscribe,
+    .footer-social {
+        grid-area: initial !important; /* Reset areas */
+        margin: 0 auto; /* Center the content */
+    }
+
+    .social-links {
+        justify-content: center; /* Center the social icons */
+    }
+}

@@ -1,0 +1,49 @@
+services:
+  - type: web
+    name: growthforge
+    env: python
+    plan: starter
+    region: frankfurt
+
+    rootDir: .
+
+    buildFilter:
+      paths:
+        - backend/**
+        - frontend/**
+        - deploy.sh
+        - render.yaml
+
+    # The build command to run
+    buildCommand: "./deploy.sh"
+
+    # The start command for the Gunicorn server
+    startCommand: "gunicorn --chdir backend growthforge.wsgi"
+
+    # Environment variables
+    envVars:
+      - key: DATABASE_URL
+        # This will be automatically provided by the Render PostgreSQL database
+        fromDatabase:
+          name: growthforge-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: growthforge.onrender.com
+      - key: DEBUG
+        value: False
+
+      # Superuser Credentials (set these in the Render dashboard for security)
+      - key: DJANGO_SUPERUSER_USERNAME
+        sync: false
+      - key: DJANGO_SUPERUSER_EMAIL
+        sync: false
+      - key: DJANGO_SUPERUSER_PASSWORD
+        sync: false
+
+databases:
+  - name: growthforge-db
+    databaseName: growthforge
+    user: growthforge_user
+    plan: free

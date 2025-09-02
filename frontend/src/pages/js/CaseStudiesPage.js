@@ -1,0 +1,86 @@
+// src/pages/CaseStudiesPage.js
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "../css/CaseStudiesPage.css";
+
+const CaseStudiesPage = () => {
+  const [studies, setStudies] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStudies = async () => {
+      try {
+        const result = await axios.get("/api/casestudies/");
+        setStudies(result.data);
+      } catch (error) {
+        console.error("Error fetching case studies:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStudies();
+  }, []);
+
+  if (loading) {
+    return (
+      <div
+        className="container"
+        style={{ textAlign: "center", padding: "4rem 0" }}
+      >
+        <h2>Loading Success Stories...</h2>
+      </div>
+    );
+  }
+
+  return (
+    <div className="case-studies-page">
+      <div className="container">
+        <div className="page-header">
+          <h1>Our Proven Results</h1>
+          <p>
+            We don't just promise growth; we deliver it. Explore how we've
+            transformed businesses like yours.
+          </p>
+        </div>
+
+        <div className="studies-list">
+          {studies.length > 0 ? (
+            studies.map((study, index) => (
+              <div
+                key={study.id}
+                className={`study-entry ${index % 2 !== 0 ? "reverse" : ""}`}
+              >
+                <div className="study-image">
+                  {/* The corrected line using the full image_url from the API */}
+                  <img src={study.image_url} alt={study.title} />
+                </div>
+                <div className="study-content">
+                  <h3>{study.client_name}</h3>
+                  <h2>{study.title}</h2>
+                  <div className="problem-solution">
+                    <h4>The Challenge</h4>
+                    <p>{study.problem}</p>
+                    <h4>Our Solution</h4>
+                    <p>{study.solution}</p>
+                  </div>
+                  <div className="results-box">
+                    <p>Results:</p>
+                    <strong>{study.results}</strong>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div style={{ textAlign: "center" }}>
+              <h3>No case studies to display yet.</h3>
+              <p>Check back soon to see our latest success stories!</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CaseStudiesPage;

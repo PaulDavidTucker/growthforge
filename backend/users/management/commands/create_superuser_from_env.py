@@ -14,11 +14,11 @@ class Command(BaseCommand):
         password = os.environ.get('DJANGO_SUPERUSER_PASSWORD')
 
         if not all([username, email, password]):
-            self.stdout.write(self.style.WARNING("Superuser environment variables not set. Skipping."))
+            self.stdout.write(self.style.WARNING("Superuser environment variables not set. Skipping.")) # type: ignore
             return
 
         if User.objects.filter(username=username).exists():
-            self.stdout.write(self.style.SUCCESS(f"Superuser '{username}' already exists."))
+            self.stdout.write(self.style.SUCCESS(f"Superuser '{username}' already exists."))# type: ignore
         else:
             User.objects.create_superuser(username=username, email=email, password=password)
-            self.stdout.write(self.style.SUCCESS(f"Superuser '{username}' created successfully."))
+            self.stdout.write(self.style.SUCCESS(f"Superuser '{username}' created successfully."))# type: ignore

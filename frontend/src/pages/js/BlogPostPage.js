@@ -1,7 +1,7 @@
 // src/pages/BlogPostPage.js - CORRECTED
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom"; // <-- The key import
+import { useParams, useNavigate } from "react-router-dom"; // <-- The key import
 import "../css/BlogPostPage.css"; // We'll create this file
 
 const BlogPostPage = () => {
@@ -11,6 +11,7 @@ const BlogPostPage = () => {
 
   // useParams() reads the URL and finds the ':slug' variable
   const { slug } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -63,6 +64,9 @@ const BlogPostPage = () => {
         className="post-content"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
+      <button className="btn btn-primary" onClick={() => navigate("/blog")}>
+        Back
+      </button>
     </div>
   );
 };

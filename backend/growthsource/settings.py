@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import environ
 
 import dj_database_url
 
@@ -10,13 +11,19 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'growthsource.settings')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p-7t04kybxbc4xi59ott(yc@wsl!jw1i)ohxt_!39#p1+jp+0i'
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+env = environ.Env(
+    # 2. Set casting and default values
+    DEBUG=(bool, False)
+)
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1',).split(',')
 
@@ -81,7 +88,7 @@ WSGI_APPLICATION = 'growthsource.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://agency_pg_user:QcDbXtWVyGs06xjS63o0kLLaB64pzlBD@dpg-d2s3ig3ipnbc73e6scg0-a.frankfurt-postgres.render.com/agency_pg',
+        default=env.db('DATABASE_URL'),
         conn_max_age=600
     )
 }

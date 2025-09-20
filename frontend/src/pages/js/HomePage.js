@@ -9,7 +9,8 @@ const HomePage = () => {
     <div className="homepage">
       <section className="hero">
         <div className="container">
-          <h1>Supercharge Your Business Growth</h1>
+          <h1>Reps and Revenue</h1>
+          <h2>Supercharge Your Business Growth</h2>
           <p className="subtitle">
             We build automated systems that drive sales, streamline customer
             service, and capture leads, so you can focus on what you do best.
@@ -21,7 +22,7 @@ const HomePage = () => {
       </section>
 
       <section className="services">
-        <div className="container">
+        <div className="container" id="services">
           <h2>Our Core Services</h2>
           <div className="service-grid">
             <motion.div

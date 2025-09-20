@@ -41,7 +41,7 @@ const Testimonials = () => {
               <Stars count={item.rating} />
               <p className="quote">"{item.quote}"</p>
               <p className="client">
-                <strong>{item.client_name}</strong>, {item.company}
+                <strong>{item.client_name}</strong> {item.company}
               </p>
             </div>
           ))}

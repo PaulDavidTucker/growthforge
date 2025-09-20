@@ -28,6 +28,15 @@ const ContactPage = () => {
   return (
     <div className="contact-page container">
       <h1>Get in Touch</h1>
+
+      {/* 🔹 Contact info block */}
+      <div className="contact-info">
+        <p>
+          You can also reach us directly at{" "}
+          <a href="mailto:info@repsandrevenue.com">info@repsandrevenue.com</a>
+        </p>
+      </div>
+
       <form onSubmit={handleSubmit} className="contact-form">
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -37,6 +46,7 @@ const ContactPage = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            placeholder="Your Name here.."
           />
         </div>
         <div className="form-group">
@@ -47,6 +57,7 @@ const ContactPage = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            placeholder="Your Email here.."
           />
         </div>
         <div className="form-group">
@@ -56,11 +67,20 @@ const ContactPage = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
+            placeholder="Your Message..."
           ></textarea>
         </div>
+
         <button type="submit" className="btn">
           Send Inquiry
         </button>
+
+        <a
+          href="mailto:info@repsandrevenue.com?subject=Inquiry%20from%20Website&body=Dear%20RepsAndRevenue%20Team,"
+          className="btn secondary"
+        >
+          Email Us Instead
+        </a>
       </form>
     </div>
   );

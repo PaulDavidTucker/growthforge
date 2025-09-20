@@ -16,6 +16,26 @@
     gap: 1.5rem;
 }
 
+.contact-info {
+    margin: 1rem 0 2rem;
+    padding: 1rem;
+    background: #3461eb;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.contact-info a {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -39,4 +59,33 @@
 .form-group textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn.primary:hover {
+    background: #0056a3; /* darken accent */
+}
+
+/* Secondary mailto button */
+.btn.secondary {
+    background: #3461eb;
+    color: var(--text-color);
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.btn.secondary:hover {
+    background: #ddd;
+    border-color: #aaa;
 }

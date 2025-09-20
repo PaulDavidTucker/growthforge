@@ -13,6 +13,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
+print(BASE_DIR)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -131,9 +133,15 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR , 'frontend', 'build', 'static'),
+    os.path.join(BASE_DIR, "frontend", "build"),
 ]
-STATIC_ROOT = BASE_DIR / 'frontend' / 'static'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+print(STATIC_URL)
+print(STATIC_ROOT)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -141,4 +149,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'

@@ -1,5 +1,8 @@
 /* src/index.css */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+html {
+    overflow-x: hidden;
+}
 
 :root {
     --primary-color: #0a0a2a;
@@ -16,6 +19,7 @@ body {
     background-color: var(--primary-color);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 h1,
@@ -26,7 +30,6 @@ h3 {
 }
 
 .container {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }

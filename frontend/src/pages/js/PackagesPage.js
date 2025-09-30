@@ -7,19 +7,23 @@ import ChatbotShowcase from "../../components/ChatbotShowcase";
 const PackagesPage = () => {
   return (
     <div className="packages-page container">
-      <h1>Our Packages</h1>
-      <p className="packages-intro">
-        Choose the plan that's right for your business. Each package is designed
-        to deliver maximum impact and a significant return on investment.
-      </p>
-
+      <div className="page-header">
+        <h1>Find your Growth Plan</h1>
+        <p className="packages-intro">
+          Transparent pricing for serious results. Choose the package that
+          aligns with your business goals.
+        </p>
+      </div>
       <div className="package-grid">
-        <div className="package-card">
+        <div className="package-card glass-card">
           <h2>Starter</h2>
-          <p className="price">$500</p>
+          <p className="description">
+            For businesses ready to build a foundational sales funnel.
+          </p>
           <ul>
-            <li>✓ Custom Sales Funnel</li>
-            <li>✓ Basic Ad Package</li>
+            <li>✓ Custom Sales Funnel Design</li>
+            <li>✓ Basic Ad Campaign Setup</li>
+            <li>✓ Lead Form Integration</li>
             <li>- AI Chatbot</li>
             <li>- Lead Automation</li>
           </ul>
@@ -27,27 +31,33 @@ const PackagesPage = () => {
             Get Started
           </Link>
         </div>
-        <div className="package-card popular">
+        <div className="package-card glass-card popular">
           <h2>Growth</h2>
-          <p className="price">$750</p>
+          <p className="description">
+            The complete package to automate and scale your lead generation.
+          </p>
           <ul>
-            <li>✓ Custom Sales Funnel</li>
-            <li>✓ Advanced Ad Package</li>
-            <li>✓ AI Chatbot (FAQs)</li>
-            <li>- Lead Automation</li>
+            <li>✓ Advanced Funnel Strategy</li>
+            <li>✓ Pro Ad Package & Management</li>
+            <li>✓ AI Chatbot (FAQs & Lead Capture)</li>
+            <li>✓ Email List Integration</li>
+            <li>- Advanced Automation</li>
           </ul>
           <Link to="/contact" className="btn">
             Get Started
           </Link>
         </div>
-        <div className="package-card">
+        <div className="package-card glass-card">
           <h2>Scale</h2>
-          <p className="price">$1,000</p>
+          <p className="description">
+            A fully custom, enterprise-level solution for maximum growth.
+          </p>
           <ul>
-            <li>✓ Multi-Step Sales Funnel</li>
-            <li>✓ Pro Ad Package</li>
-            <li>✓ Advanced AI Chatbot</li>
-            <li>✓ Lead Automation Outreach</li>
+            <li>✓ Multi-Step Funnel Ecosystem</li>
+            <li>✓ Enterprise Ad Management</li>
+            <li>✓ Advanced Conversational AI</li>
+            <li>✓ Full Lead Automation Outreach</li>
+            <li>✓ CRM Integration</li>
           </ul>
           <Link to="/contact" className="btn">
             Get Started

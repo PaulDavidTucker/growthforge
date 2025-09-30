@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/CaseStudiesPage.css";
+import { Helmet } from "react-helmet-async";
 
 const CaseStudiesPage = () => {
   const [studies, setStudies] = useState([]);
@@ -34,52 +35,69 @@ const CaseStudiesPage = () => {
   }
 
   return (
-    <div className="case-studies-page">
-      <div className="container">
-        <div className="page-header">
-          <h1>Our Proven Results</h1>
-          <p>
-            We don't just promise growth; we deliver it. Explore how we've
-            transformed businesses like yours.
-          </p>
-        </div>
+    <>
+      <Helmet>
+        <title>
+          Case Studies | Reps &amp; Revenue - Reps and Revenue Digital Marketing
+          Agency
+        </title>
+        <meta
+          name="description"
+          content="Examples from previous success stories, hear about the changes that took them from zero to hero."
+        />
+        <meta property="og:title" content="Case Studies | Reps & Revenue" />
+        <meta
+          property="og:description"
+          content="Examples from previous success stories, hear about the changes that took them from zero to hero."
+        />
+      </Helmet>
+      <div className="case-studies-page">
+        <div className="container">
+          <div className="page-header">
+            <h1>Our Proven Results</h1>
+            <p>
+              We don't just promise growth; we deliver it. Explore how we've
+              transformed businesses like yours.
+            </p>
+          </div>
 
-        <div className="studies-list">
-          {studies.length > 0 ? (
-            studies.map((study, index) => (
-              <div
-                key={study.id}
-                className={`study-entry ${index % 2 !== 0 ? "reverse" : ""}`}
-              >
-                <div className="study-image">
-                  {/* The corrected line using the full image_url from the API */}
-                  <img src={study.image_url} alt={study.title} />
-                </div>
-                <div className="study-content">
-                  <h3>{study.client_name}</h3>
-                  <h2>{study.title}</h2>
-                  <div className="problem-solution">
-                    <h4>The Challenge</h4>
-                    <p>{study.problem}</p>
-                    <h4>Our Solution</h4>
-                    <p>{study.solution}</p>
+          <div className="studies-list">
+            {studies.length > 0 ? (
+              studies.map((study, index) => (
+                <div
+                  key={study.id}
+                  className={`study-entry ${index % 2 !== 0 ? "reverse" : ""}`}
+                >
+                  <div className="study-image">
+                    {/* The corrected line using the full image_url from the API */}
+                    <img src={study.image_url} alt={study.title} />
                   </div>
-                  <div className="results-box">
-                    <p>Results:</p>
-                    <strong>{study.results}</strong>
+                  <div className="study-content">
+                    <h3>{study.client_name}</h3>
+                    <h2>{study.title}</h2>
+                    <div className="problem-solution">
+                      <h4>The Challenge</h4>
+                      <p>{study.problem}</p>
+                      <h4>Our Solution</h4>
+                      <p>{study.solution}</p>
+                    </div>
+                    <div className="results-box">
+                      <p>Results:</p>
+                      <strong>{study.results}</strong>
+                    </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div style={{ textAlign: "center" }}>
+                <h3>No case studies to display yet.</h3>
+                <p>Check back soon to see our latest success stories!</p>
               </div>
-            ))
-          ) : (
-            <div style={{ textAlign: "center" }}>
-              <h3>No case studies to display yet.</h3>
-              <p>Check back soon to see our latest success stories!</p>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

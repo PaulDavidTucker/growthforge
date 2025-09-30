@@ -16,6 +16,7 @@ import ContactPage from "./pages/js/ContactPage";
 import BlogListPage from "./pages/js/BlogListPage";
 import BlogPostPage from "./pages/js/BlogPostPage";
 import CaseStudiesPage from "./pages/js/CaseStudiesPage";
+import FloatingChatbot from "./components/FloatingChatbot";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <FloatingChatbot />
     </Router>
   );
 }

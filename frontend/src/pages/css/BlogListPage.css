@@ -1,83 +1,56 @@
 /* src/pages/BlogListPage.css */
-
-.blog-list-page h1 {
+.blog-list-page .page-header {
     text-align: center;
+    padding: 4rem 0;
+}
+.blog-list-page h1 {
     font-size: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+}
+
+.post-summary-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
 }
 
 .post-summary {
-    background: var(--dark-background);
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    border-left: 5px solid var(--secondary-color); /* Accent line */
-
-    /* --- Animation --- */
-    opacity: 0;
-    animation: fadeIn 0.8s forwards ease-out;
+    /* Inherits from .glass-card, which should be added to the component's JSX */
+    display: flex;
+    flex-direction: column;
 }
-
-/* Staggered animation for blog posts */
-.post-summary:nth-child(2) {
-    animation-delay: 0.2s;
-}
-.post-summary:nth-child(3) {
-    animation-delay: 0.4s;
-}
-/* Add more as needed */
 
 .post-summary h2 a {
-    color: var(--text-color);
+    color: var(--text-primary);
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.4;
     transition: color 0.3s ease;
 }
-
 .post-summary h2 a:hover {
-    color: var(--accent-color); /* Highlight color on hover */
+    color: var(--primary-accent);
 }
 
 .post-meta {
-    color: #aaa;
+    color: var(--text-secondary);
     font-size: 0.9rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
+}
+
+.post-excerpt {
+    color: var(--text-secondary);
+    flex-grow: 1; /* Pushes the 'Read More' link to the bottom */
 }
 
 .btn-read-more {
     display: inline-block;
-    color: var(--accent-color);
+    color: var(--primary-accent);
     text-decoration: none;
     font-weight: 600;
-    position: relative; /* For the animated underline */
+    margin-top: 1.5rem;
+    transition: opacity 0.3s ease;
 }
-
-/* --- Animated Underline on Hover --- */
-.btn-read-more::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--accent-color);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
-}
-
-.btn-read-more:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
-/* --- Keyframe Animation Definition --- */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.btn-read-more:hover {
+    opacity: 0.8;
 }

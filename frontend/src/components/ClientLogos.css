@@ -1,0 +1,45 @@
+/* src/components/ClientLogos.css */
+.client-logos-section {
+    padding: 4rem 0;
+    background-color: var(--background-dark); /* Match the main background */
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.logos-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* This is a placeholder style. Replace with <img> tags. */
+.logo-placeholder {
+    font-weight: 700;
+    color: #555;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+.logo-placeholder:hover {
+    opacity: 1;
+}
+
+/* If you use real image tags for logos, use this CSS instead: */
+/*
+.logos-grid img {
+    max-height: 40px;
+    filter: grayscale(100%) opacity(60%);
+    transition: filter 0.3s ease;
+}
+.logos-grid img:hover {
+    filter: grayscale(0%) opacity(100%);
+}
+*/

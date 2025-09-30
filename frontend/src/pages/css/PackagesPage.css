@@ -1,56 +1,85 @@
 /* src/pages/PackagesPage.css */
-.packages-page {
-    padding-top: 4rem;
+.packages-page .page-header {
     text-align: center;
+    padding: 4rem 0;
 }
-
 .packages-page h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
-
-.packages-intro {
+.packages-page .page-header p {
+    font-size: 1.2rem;
     max-width: 600px;
-    margin: 0 auto 4rem;
+    margin: 0 auto;
+    color: var(--text-secondary);
 }
 
 .package-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+    align-items: stretch; /* Make cards the same height */
 }
 
 .package-card {
-    background: var(--dark-background);
-    padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid #444;
-    text-align: left;
-}
-
-.package-card.popular {
-    border-color: var(--accent-color);
-    transform: scale(1.05);
+    display: flex;
+    flex-direction: column; /* Allows footer button to stick to the bottom */
+    text-align: center;
+    position: relative;
 }
 
 .package-card h2 {
-    font-size: 2rem;
-    color: var(--secondary-color);
+    font-size: 1.8rem;
 }
 
 .price {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-accent);
     margin: 1rem 0;
-    color: var(--accent-color);
+}
+
+.description {
+    color: var(--text-secondary);
+    min-height: 60px; /* Aligns the lists */
 }
 
 .package-card ul {
     list-style: none;
     padding: 0;
     margin: 2rem 0;
+    text-align: left;
+    flex-grow: 1; /* Pushes the button to the bottom */
 }
 
 .package-card li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.package-card li:first-child {
+    color: var(--text-primary);
+}
+
+/* --- Most Popular Badge --- */
+.package-card.popular {
+    transform: scale(1.05);
+    border-color: var(--primary-accent);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(
+        90deg,
+        var(--primary-accent),
+        var(--secondary-accent)
+    );
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
 }

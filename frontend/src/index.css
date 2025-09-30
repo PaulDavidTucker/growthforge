@@ -1,50 +1,83 @@
 /* src/index.css */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-html {
-    overflow-x: hidden;
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 
 :root {
-    --primary-color: #0a0a2a;
-    --secondary-color: #4a4afc;
-    --accent-color: #ffc107;
-    --text-color: #f4f4f4;
-    --background-color: #ffffff;
-    --dark-background: #1a1a1a;
+    --background-dark: #0b0b1a; /* A deep, near-black blue */
+    --background-light: #16162c; /* A slightly lighter blue for sections */
+    --primary-accent: #0077ff; /* A vibrant, modern blue */
+    --secondary-accent: #8a2be2; /* A secondary violet for gradients */
+    --text-primary: #f0f0f0; /* Off-white for readability */
+    --text-secondary: #a9a9b2; /* Light gray for subtitles and paragraphs */
+    --border-color: rgba(255, 255, 255, 0.1);
 }
 
 body {
     margin: 0;
-    font-family: "Poppins", sans-serif;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-family: "Inter", sans-serif; /* A clean, modern sans-serif font */
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    line-height: 1.7;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-weight: 700;
-    color: var(--secondary-color);
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
 }
 
 .container {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
+/* --- The New Button Style --- */
 .btn {
     display: inline-block;
-    background: var(--secondary-color);
-    color: var(--text-color);
-    padding: 12px 24px;
-    border-radius: 5px;
+    background: linear-gradient(
+        90deg,
+        var(--primary-accent),
+        var(--secondary-accent)
+    );
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 119, 255, 0.2);
 }
 
 .btn:hover {
-    background-color: #3a3adc;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 119, 255, 0.3);
+}
+
+/* --- The Reusable "Glass Card" Style --- */
+.glass-card {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0)
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }

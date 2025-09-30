@@ -1,29 +1,45 @@
-.about-page {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+/* src/pages/AboutPage.css */
+.about-page .page-header {
+    text-align: center;
+    padding: 4rem 0;
 }
-
 .about-page h1 {
     font-size: 3rem;
-    text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
-
-.about-intro {
+.about-page .page-header p {
     font-size: 1.2rem;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 4rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--text-secondary);
 }
 
-.mission-section h2 {
-    text-align: center;
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem 0;
+}
+
+.about-text h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
 }
+.about-text p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
 
-.mission-section p {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
 }

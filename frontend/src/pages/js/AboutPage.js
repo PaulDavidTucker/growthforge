@@ -3,6 +3,7 @@ import React from "react";
 import "../css/AboutPage.css";
 import Testimonials from "../../components/Testimonials";
 import { Helmet } from "react-helmet-async";
+import OurProcess from "../../components/OurProcess";
 
 const AboutPage = () => {
   return (
@@ -45,6 +46,8 @@ const AboutPage = () => {
           </p>
         </div>
         <Testimonials />
+
+        <OurProcess />
       </div>
     </>
   );

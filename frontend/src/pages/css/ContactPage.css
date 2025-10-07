@@ -21,6 +21,10 @@
     /* Inherits from .glass-card, which should be added to the form's wrapper */
 }
 
+a#email-link {
+    color: var(--text-primary);
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -33,7 +37,7 @@
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
+    width: 95%;
     background-color: rgba(0, 0, 0, 0.2);
     color: var(--text-primary);
     border: 1px solid var(--border-color);

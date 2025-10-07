@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/CaseStudiesPage.css";
 import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const CaseStudiesPage = () => {
   const [studies, setStudies] = useState([]);
@@ -24,14 +25,7 @@ const CaseStudiesPage = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div
-        className="container"
-        style={{ textAlign: "center", padding: "4rem 0" }}
-      >
-        <h2>Loading Success Stories...</h2>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (

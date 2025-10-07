@@ -2,8 +2,9 @@ import os
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack  # We'll need this for user auth later
+
 # You will need to create the chat.routing module mentioned below
-# import chat.routing
+import chatbot.routing
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "growthsource.settings")
 
@@ -18,6 +19,7 @@ application = ProtocolTypeRouter(
         "websocket": AuthMiddlewareStack(
             URLRouter(
                 # chat.routing.websocket_urlpatterns # 👈 This is where you'll define your WebSocket URLs
+                chatbot.routing.websocket_urlpatterns
             )
         ),
     }

@@ -17,6 +17,11 @@ body {
     background-color: var(--background-dark);
     color: var(--text-primary);
     line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.body-no-scroll {
+    overflow: hidden;
 }
 
 h1,
@@ -53,6 +58,31 @@ h4 {
         transform 0.3s ease,
         box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 119, 255, 0.2);
+}
+
+a.btn-secondary {
+    display: inline-block;
+    background: linear-gradient(
+        90deg,
+        var(--primary-accent),
+        var(--secondary-accent)
+    );
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 119, 255, 0.2);
+}
+
+a.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 119, 255, 0.3);
 }
 
 .btn:hover {

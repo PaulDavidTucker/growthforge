@@ -1,0 +1,66 @@
+/* src/components/OurProcess.css */
+.process-section {
+    padding: 6rem 0;
+    background-color: var(--background-light);
+    border-top: 1px solid var(--border-color);
+}
+
+.process-section .section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.process-step {
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--background-dark);
+    transition: transform 0.3s ease;
+    position: relative; /* Needed for the decorative line on mobile */
+}
+.process-step:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-accent);
+    margin-bottom: 1rem;
+}
+
+.process-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.process-step p {
+    color: var(--text-secondary);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .process-grid {
+        grid-template-columns: 1fr; /* Stack the items */
+        gap: 3rem; /* Increase gap for vertical layout */
+    }
+
+    /* Create a decorative line connecting the steps */
+    .process-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        bottom: -1.5rem; /* Position it in the middle of the gap */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 1.5rem; /* Half the gap size */
+        background-color: var(--primary-accent);
+        opacity: 0.5;
+    }
+}

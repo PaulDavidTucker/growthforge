@@ -1,7 +1,9 @@
 /* src/components/ClientLogos.css */
 .client-logos-section {
     padding: 4rem 0;
-    background-color: var(--background-dark); /* Match the main background */
+    background-color: var(--background-dark);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .section-subtitle {
@@ -14,32 +16,31 @@
 
 .logos-grid {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Center the logos in the container */
     align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+    flex-wrap: wrap; /* Allows logos to stack on smaller screens */
+    gap: 5rem; /* Space between logos */
 }
 
-/* This is a placeholder style. Replace with <img> tags. */
-.logo-placeholder {
-    font-weight: 700;
-    color: #555;
-    font-size: 1.5rem;
-    opacity: 0.6;
+.client-logo {
+    display: block;
+    height: 40px; /* Set a consistent height for all logos */
+    color: var(--text-secondary); /* This will be the fill color for the SVG */
+    opacity: 0.6; /* Mute the logos by default */
     transition: opacity 0.3s ease;
 }
-.logo-placeholder:hover {
-    opacity: 1;
+
+.client-logo:hover {
+    opacity: 1; /* Bring to full color on hover */
 }
 
-/* If you use real image tags for logos, use this CSS instead: */
-/*
-.logos-grid img {
-    max-height: 40px;
-    filter: grayscale(100%) opacity(60%);
-    transition: filter 0.3s ease;
+.client-logo svg {
+    height: 100%;
+    width: auto;
+    fill: currentColor; /* The SVG will inherit its color from the parent `a` tag */
 }
-.logos-grid img:hover {
-    filter: grayscale(0%) opacity(100%);
+
+.client-logo text {
+    height: 100%;
+    width: auto;
 }
-*/

@@ -108,14 +108,19 @@
 @media (max-width: 992px) {
     .study-entry,
     .study-entry.reverse {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack the columns */
         grid-template-areas: initial !important;
+        text-align: center; /* Center text for a better look when stacked */
     }
     .study-entry .study-image,
     .study-entry .study-content {
         grid-area: initial !important;
     }
-    .study-entry.reverse {
-        flex-direction: column-reverse; /* Keep image on top on mobile */
+    .problem-solution h4 {
+        padding-left: 0;
+        border-left: none; /* Remove left border on mobile */
+    }
+    .problem-solution p {
+        padding-left: 0;
     }
 }

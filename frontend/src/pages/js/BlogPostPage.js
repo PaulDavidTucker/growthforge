@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom"; // <-- The key import
 import "../css/BlogPostPage.css"; // We'll create this file
 import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const BlogPostPage = () => {
   const [post, setPost] = useState(null);
@@ -38,11 +39,7 @@ const BlogPostPage = () => {
   }, [slug]); // The effect re-runs if the slug in the URL changes
 
   if (loading) {
-    return (
-      <div className="container">
-        <h2>Loading...</h2>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (error) {

@@ -3,18 +3,39 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../css/BlogListPage.css";
 import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const BlogListPage = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const result = await axios("/api/blog/");
-      setPosts(result.data);
+      try {
+        const result = await axios("/api/blog/");
+        setPosts(result.data);
+      } catch (err) {
+        console.error(err);
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchPosts();
   }, []);
 
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return (
+      <div className="container">
+        <h2>{error}</h2>
+      </div>
+    );
+  }
   return (
     <>
       <Helmet>
@@ -32,7 +53,7 @@ const BlogListPage = () => {
         />
       </Helmet>
       <div className="blog-list-page container">
-        <h1>GrowthForge Blog</h1>
+        <h1>Reps &amp; Revenue Blog</h1>
         {posts.map((post) => (
           <article key={post.id} className="post-summary glass-card">
             <h2>

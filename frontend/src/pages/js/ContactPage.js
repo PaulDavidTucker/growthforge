@@ -26,6 +26,8 @@ const ContactPage = () => {
     }
   };
 
+  const linkStyle = { "margin-left": "10px" };
+
   return (
     <>
       <Helmet>
@@ -50,7 +52,9 @@ const ContactPage = () => {
         <div className="contact-info">
           <p>
             You can also reach us directly at{" "}
-            <a href="mailto:info@repsandrevenue.com">info@repsandrevenue.com</a>
+            <a id="email-link" href="mailto:info@repsandrevenue.com">
+              info@repsandrevenue.com
+            </a>
           </p>
         </div>
 
@@ -95,7 +99,8 @@ const ContactPage = () => {
 
               <a
                 href="mailto:info@repsandrevenue.com?subject=Inquiry%20from%20Website&body=Dear%20RepsAndRevenue%20Team,"
-                className="btn secondary"
+                className="btn-secondary"
+                style={linkStyle}
               >
                 Email Us Instead
               </a>

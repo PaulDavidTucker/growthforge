@@ -32,7 +32,7 @@ const HomePage = () => {
           <div className="service-grid">
             {/* Now using the reusable glass-card style */}
             <div className="service-card glass-card">
-              <h3>Sales & Growth Funnels</h3>
+              <h3>Sales &amp; Growth Funnels</h3>
               <p>
                 Custom-built funnels integrated with targeted ad campaigns to
                 convert prospects into loyal customers.

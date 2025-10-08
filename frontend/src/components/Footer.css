@@ -8,7 +8,7 @@
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 2fr 0.6fr; /* 3-column layout */
+    grid-template-columns: 1.5fr 2fr 1fr; /* 3-column layout */
     gap: 3rem; /* Spacing between columns */
     align-items: start;
 }

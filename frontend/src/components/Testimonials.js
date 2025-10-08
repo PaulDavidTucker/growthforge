@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Testimonials.css";
+import LoadingSpinner from "./LoadingSpinner";
 
 // Simple star component
 const Stars = ({ count }) => (
@@ -16,18 +17,36 @@ const Stars = ({ count }) => (
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
+        setLoading(true);
         const result = await axios.get("/api/testimonials/");
         setTestimonials(result.data);
       } catch (error) {
         console.error("Error fetching testimonials", error);
+        setError(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchTestimonials();
   }, []);
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return (
+      <div className="container">
+        <h2>{error}</h2>
+      </div>
+    );
+  }
 
   if (testimonials.length === 0) return null; // Don't render if there are no testimonials
 

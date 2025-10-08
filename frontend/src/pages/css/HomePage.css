@@ -1,61 +1,106 @@
 /* src/pages/HomePage.css */
+
+/* --- Hero Section --- */
 .hero {
     text-align: center;
-    padding: 6rem 0;
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
+
+    /* The animated background gradient */
+    background: linear-gradient(
+        315deg,
+        var(--background-dark),
+        var(--primary-accent),
+        var(--background-dark),
+        var(--secondary-accent)
+    );
+    background-size: 400% 400%;
+    animation: gradientAnimation 12s ease infinite;
 }
 
-.btn {
-    transition:
-        background-color 0.3s ease,
-        transform 0.2s ease;
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-.btn:hover {
-    color: var(--accent-color);
-    transform: translateY(-2px);
+.hero-title {
+    font-size: 4.5rem; /* Much larger and more impactful */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#services {
-    max-width: 1200px;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.subtitle {
+.hero-subtitle {
     font-size: 1.2rem;
     max-width: 700px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 2.5rem;
+    color: var(--text-secondary);
 }
 
+.social-proof {
+    margin-top: 3rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* --- Services Section --- */
 .services {
-    padding: 4rem 0;
-    background-color: var(--dark-background);
+    padding: 6rem 0;
+    background-color: var(--background-light);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
-.services h2 {
+.section-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
 }
 
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
 
 .service-card {
-    background: var(--primary-color);
-    padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid #333;
+    /* Most styling is now handled by the .glass-card class */
+    text-align: center;
 }
 
 .service-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--accent-color);
+    color: var(--text-primary);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+}
+
+.service-card:hover {
+    border: 1px solid rgba(0, 119, 255, 0.5); /* Glowing border on hover */
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem; /* Reduce font size on mobile */
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .hero {
+        padding: 6rem 0;
+    }
 }

@@ -16,6 +16,8 @@ import ContactPage from "./pages/js/ContactPage";
 import BlogListPage from "./pages/js/BlogListPage";
 import BlogPostPage from "./pages/js/BlogPostPage";
 import CaseStudiesPage from "./pages/js/CaseStudiesPage";
+import FloatingChatbot from "./components/FloatingChatbot";
+import CTASection from "./components/CTASection";
 
 function App() {
   return (
@@ -33,7 +35,9 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <CTASection />
       <Footer />
+      <FloatingChatbot />
     </Router>
   );
 }

@@ -1,59 +1,59 @@
-/* Create a new file src/pages/ContactPage.css */
-.contact-page {
-    max-width: 800px;
-    margin: 4rem auto;
+/* src/pages/ContactPage.css */
+.contact-page-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    padding: 4rem 0;
+    align-items: flex-start;
 }
 
-.contact-page h1 {
-    text-align: center;
-    font-size: 3rem;
+.contact-info h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+.contact-info p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
     margin-bottom: 2rem;
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    /* Inherits from .glass-card, which should be added to the form's wrapper */
 }
 
-.contact-info {
-    margin: 1rem 0 2rem;
-    padding: 1rem;
-    background: #3461eb;
-    border-left: 4px solid var(--accent-color);
-    border-radius: 4px;
-    font-size: 1.1rem;
-    color: var(--text-color);
-}
-
-.contact-info a {
-    color: var(--accent-color);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
+a#email-link {
+    color: var(--text-primary);
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 1.5rem;
 }
 
 .form-group label {
-    margin-bottom: 0.5rem;
+    display: block;
     font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 .form-group input,
 .form-group textarea {
-    background-color: var(--dark-background);
-    color: var(--text-color);
-    border: 1px solid #444;
-    border-radius: 5px;
-    padding: 12px;
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 14px;
     font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.2);
 }
 
 .form-group textarea {
@@ -61,31 +61,8 @@
     resize: vertical;
 }
 
-.form-actions {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.btn.primary:hover {
-    background: #0056a3; /* darken accent */
-}
-
-/* Secondary mailto button */
-.btn.secondary {
-    background: #3461eb;
-    color: var(--text-color);
-    padding: 0.7rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 600;
-
-    transition: all 0.3s ease;
-}
-
-.btn.secondary:hover {
-    background: #ddd;
-    border-color: #aaa;
+@media (max-width: 992px) {
+    .contact-page-grid {
+        grid-template-columns: 1fr;
+    }
 }

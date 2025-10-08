@@ -10,10 +10,11 @@ const Footer = () => {
       <div className="container footer-grid">
         {/* Column 1: About */}
         <div className="footer-about">
-          <h3>GrowthForge</h3>
+          <h3>Reps &amp; Revenue</h3>
           <p>Automated systems for business growth.</p>
           <p className="copyright">
-            &copy; {new Date().getFullYear()} GrowthForge. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Reps&amp;Revenue. All Rights
+            Reserved.
           </p>
         </div>
 

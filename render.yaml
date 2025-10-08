@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: growthforge
+    name: Repsandrevenue
     env: python
     plan: starter
     region: frankfurt
@@ -18,19 +18,19 @@ services:
     buildCommand: "./deploy.sh"
 
     # The start command for the Gunicorn server
-    startCommand: "gunicorn --chdir backend growthforge.wsgi"
+    startCommand: "gunicorn --chdir backend growthsource.wsgi"
 
     # Environment variables
     envVars:
       - key: DATABASE_URL
         # This will be automatically provided by the Render PostgreSQL database
         fromDatabase:
-          name: growthforge-db
+          name: growthsource-db
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: ALLOWED_HOSTS
-        value: growthforge.onrender.com
+        value: growthsource.onrender.com
       - key: DEBUG
         value: False
 
@@ -43,7 +43,7 @@ services:
         sync: false
 
 databases:
-  - name: growthforge-db
-    databaseName: growthforge
-    user: growthforge_user
+  - name: growthsource-db
+    databaseName: growthsource
+    user: growthsource-db
     plan: free

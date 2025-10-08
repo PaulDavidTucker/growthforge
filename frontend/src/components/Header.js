@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 import MainLogo from "../Images/Mainlogo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      // Add a class to the body to prevent scrolling
+      document.body.classList.add("body-no-scroll");
+    } else {
+      // Remove the class to allow scrolling again
+      document.body.classList.remove("body-no-scroll");
+    }
+
+    // Cleanup function: ensures the class is removed if the component unmounts
+    return () => {
+      document.body.classList.remove("body-no-scroll");
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);

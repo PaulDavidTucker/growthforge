@@ -13,7 +13,7 @@ pip install -r backend/requirements.txt
 
 echo "--> Installing frontend dependencies..."
 # Use npm ci for faster, more reliable builds in CI/CD environments
-npm --prefix frontend ci
+npm --prefix frontend ci --legacy-peer-deps
 
 # --- Build Frontend ---
 echo "--> Building frontend..."

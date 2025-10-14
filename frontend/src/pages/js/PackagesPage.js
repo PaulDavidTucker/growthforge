@@ -1,10 +1,13 @@
 // src/pages/PackagesPage.js
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/PackagesPage.css";
 import ChatbotShowcase from "../../components/ChatbotShowcase";
 
 const PackagesPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="packages-page container">
       <div className="page-header">
@@ -24,11 +27,11 @@ const PackagesPage = () => {
             <li>✓ Custom Sales Funnel Design</li>
             <li>✓ Basic Ad Campaign Setup</li>
             <li>✓ Lead Form Integration</li>
-            <li>- AI Chatbot</li>
-            <li>- Lead Automation</li>
+            <li>✘ AI Chatbot</li>
+            <li>✘ Lead Automation</li>
           </ul>
           <Link to="/contact" className="btn">
-            Get Started
+            Learn More
           </Link>
         </div>
         <div className="package-card glass-card popular">
@@ -41,10 +44,10 @@ const PackagesPage = () => {
             <li>✓ Pro Ad Package & Management</li>
             <li>✓ AI Chatbot (FAQs & Lead Capture)</li>
             <li>✓ Email List Integration</li>
-            <li>- Advanced Automation</li>
+            <li>✘ Advanced Automation</li>
           </ul>
           <Link to="/contact" className="btn">
-            Get Started
+            Learn More
           </Link>
         </div>
         <div className="package-card glass-card">
@@ -60,7 +63,7 @@ const PackagesPage = () => {
             <li>✓ CRM Integration</li>
           </ul>
           <Link to="/contact" className="btn">
-            Get Started
+            Learn More
           </Link>
         </div>
       </div>

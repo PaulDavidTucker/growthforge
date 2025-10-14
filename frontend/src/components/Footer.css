@@ -99,3 +99,10 @@
         justify-content: center; /* Center the social icons */
     }
 }
+
+a {
+    color: #aaa;
+}
+a#priv {
+    margin-left: 0.5em;
+}

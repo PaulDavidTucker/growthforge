@@ -1,10 +1,14 @@
 import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/HomePage.css";
 import FunnelPreview from "../../components/FunnelPreview";
-import ClientLogos from "../../components/ClientLogos";
+// import ClientLogos from "../../components/ClientLogos";
 
 const HomePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="homepage">
       <section className="hero">
@@ -24,7 +28,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <ClientLogos />
+      {/* <ClientLogos />*/}
 
       <section className="services">
         <div className="container">

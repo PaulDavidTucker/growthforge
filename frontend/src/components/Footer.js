@@ -1,6 +1,6 @@
 // src/components/Footer.js
 import React from "react";
-import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa"; // Import icons
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa"; // Import icons
 import NewsletterSignup from "./NewsletterSignup";
 import "./Footer.css";
 
@@ -12,6 +12,23 @@ const Footer = () => {
         <div className="footer-about">
           <h3>Reps &amp; Revenue</h3>
           <p>Automated systems for business growth.</p>
+          <a
+            href="/static/Reps-and-Revenue-Ts-and-Cs.pdf"
+            download="terms-and-conditions.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Terms &amp; Conditions
+          </a>
+          <a
+            href="/static/Reps-and-Revenue-Privacy-Policy.pdf"
+            download="privacy-policy.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="priv"
+          >
+            Privacy Policy
+          </a>
           <p className="copyright">
             &copy; {new Date().getFullYear()} Reps&amp;Revenue. All Rights
             Reserved.
@@ -28,28 +45,28 @@ const Footer = () => {
           <h4>Connect With Us</h4>
           <div className="social-links">
             <a
-              href="https://twitter.com"
+              href="https://www.instagram.com/repsandrev/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
             >
-              <FaTwitter />
+              <FaInstagram />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.tiktok.com/@repsrevenue?_t=ZP-90YDE3C3Nxn&_r=1"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
-              <FaLinkedin />
+              <FaTiktok />
             </a>
             <a
-              href="https://github.com"
+              href="https://www.facebook.com/people/RepsRevenue/61581665985621/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
             >
-              <FaGithub />
+              <FaFacebook />
             </a>
           </div>
         </div>

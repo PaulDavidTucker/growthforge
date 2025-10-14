@@ -31,7 +31,9 @@ const AboutPage = () => {
           We are a team of digital marketers, developers, and lawyers dedicated
           to helping small businesses achieve exponential growth through
           technology and automation. Reps &amp; Revenue is a small business
-          founded by three passionate individuals combining their expertise.
+          founded by three passionate individuals combining their expertise. We
+          help fitness businesses bring in high-value members without the heavy
+          lifting
         </p>
         <div className="mission-section">
           <h2>Our Mission</h2>

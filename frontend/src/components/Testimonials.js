@@ -41,11 +41,7 @@ const Testimonials = () => {
   }
 
   if (error) {
-    return (
-      <div className="container">
-        <h2>{error}</h2>
-      </div>
-    );
+    return <div className="container"></div>;
   }
 
   if (testimonials.length === 0) return null; // Don't render if there are no testimonials

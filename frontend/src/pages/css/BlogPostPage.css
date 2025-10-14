@@ -2,6 +2,7 @@
 .blog-post-page {
     max-width: 800px; /* Optimal reading width */
     margin: 4rem auto;
+    padding: 0 1rem; /* Add side padding for mobile */
 }
 
 .blog-post-page h1 {
@@ -19,13 +20,21 @@
 .post-content {
     font-size: 1.1rem;
     line-height: 1.8;
+    color: #f9f9f9; /* Darker text for readability */
 }
 
-/* Style content that comes from the Django admin's text editor */
+/* Style content from Django admin */
 .post-content h2 {
     font-size: 2rem;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.post-content h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .post-content p {
@@ -41,4 +50,47 @@
 
 .post-content a:hover {
     border-bottom: 2px solid var(--accent-color);
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-content img {
+    max-width: 100%; /* Responsive images */
+    height: auto;
+    margin: 2rem 0;
+    border-radius: 8px; /* Subtle rounding for presentability */
+}
+
+.post-content blockquote {
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #ccc;
+    font-style: italic;
+    color: #f9f9f9;
+    background: #f9f9f9;
+}
+
+.post-content code {
+    background: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .blog-post-page h1 {
+        font-size: 2.5rem;
+    }
+    .post-content {
+        font-size: 1rem;
+    }
 }

@@ -11,13 +11,14 @@
 .post-summary-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .post-summary {
     /* Inherits from .glass-card, which should be added to the component's JSX */
     display: flex;
     flex-direction: column;
+    margin-bottom: 1em;
 }
 
 .post-summary h2 a {

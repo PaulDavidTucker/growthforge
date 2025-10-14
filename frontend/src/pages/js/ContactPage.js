@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/ContactPage.css";
 import { Helmet } from "react-helmet-async";
@@ -9,6 +9,10 @@ const ContactPage = () => {
     email: "",
     message: "",
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,8 +29,6 @@ const ContactPage = () => {
       alert("There was an error submitting your form. Please try again later.");
     }
   };
-
-  const linkStyle = { "margin-left": "10px" };
 
   return (
     <>
@@ -100,7 +102,6 @@ const ContactPage = () => {
               <a
                 href="mailto:info@repsandrevenue.com?subject=Inquiry%20from%20Website&body=Dear%20RepsAndRevenue%20Team,"
                 className="btn-secondary"
-                style={linkStyle}
               >
                 Email Us Instead
               </a>

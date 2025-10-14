@@ -11,6 +11,10 @@ const BlogListPage = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchPosts = async () => {
       try {
         const result = await axios("/api/blog/");
@@ -31,8 +35,9 @@ const BlogListPage = () => {
 
   if (error) {
     return (
-      <div className="container">
-        <h2>{error}</h2>
+      <div class="container" style={{ textAlign: "center" }}>
+        <h3>No Blog posts to display yet!</h3>
+        <p>Check back soon to hear from our team!</p>
       </div>
     );
   }
@@ -54,21 +59,28 @@ const BlogListPage = () => {
       </Helmet>
       <div className="blog-list-page container">
         <h1>Reps &amp; Revenue Blog</h1>
-        {posts.map((post) => (
-          <article key={post.id} className="post-summary glass-card">
-            <h2>
-              <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-            </h2>
-            <p className="post-meta">
-              By {post.author_name} on{" "}
-              {new Date(post.created_on).toLocaleDateString()}
-            </p>
-            <p>{post.content.substring(0, 200)}...</p>
-            <Link to={`/blog/${post.slug}`} className="btn-read-more">
-              Read More
-            </Link>
-          </article>
-        ))}
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <article key={post.id} className="post-summary glass-card">
+              <h2>
+                <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+              </h2>
+              <p className="post-meta">
+                By {post.author_name} on{" "}
+                {new Date(post.created_on).toLocaleDateString()}
+              </p>
+              <p>{post.content.substring(0, 200)}...</p>
+              <Link to={`/blog/${post.slug}`} className="btn-read-more">
+                Read More
+              </Link>
+            </article>
+          ))
+        ) : (
+          <div style={{ textAlign: "center" }}>
+            <h3>No Blog posts to display yet!</h3>
+            <p>Check back soon to hear from our team!</p>
+          </div>
+        )}
       </div>
     </>
   );

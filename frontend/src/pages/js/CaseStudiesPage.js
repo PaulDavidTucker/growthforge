@@ -11,6 +11,10 @@ const CaseStudiesPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchStudies = async () => {
       try {
         const result = await axios.get("/api/casestudies/");

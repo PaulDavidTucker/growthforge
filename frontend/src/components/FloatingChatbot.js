@@ -17,6 +17,23 @@ const FloatingChatbot = () => {
   // useRef to get a direct reference to the chat body for scrolling
   const chatBodyRef = useRef(null);
 
+  useEffect(() => {
+    const mobileMediaQuery = window.matchMedia("(max-width: 768px)");
+
+    // Only auto-open if NOT mobile (one-time check on mount)
+    if (!mobileMediaQuery.matches) {
+      setIsOpen(true);
+
+      // Schedule close after 2500ms
+      const timeoutId = setTimeout(() => {
+        setIsOpen(false);
+      }, 2500);
+
+      // Proper cleanup for the timeout (runs on unmount or if effect re-runs)
+      return () => clearTimeout(timeoutId);
+    }
+  }, []);
+
   // This useEffect hook runs once when the component mounts
   useEffect(() => {
     // --- WebSocket Connection Logic ---

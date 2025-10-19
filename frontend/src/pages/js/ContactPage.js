@@ -95,7 +95,7 @@ const ContactPage = () => {
               ></textarea>
             </div>
             <div className="button-group">
-              <button type="submit" className="btn">
+              <button type="submit" className="btn" id="contactbtn">
                 Send Inquiry
               </button>
 

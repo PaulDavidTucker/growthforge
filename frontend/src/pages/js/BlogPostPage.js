@@ -11,6 +11,10 @@ const BlogPostPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { slug } = useParams();
   const navigate = useNavigate();
 

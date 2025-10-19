@@ -13,8 +13,6 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
-print(BASE_DIR)
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 

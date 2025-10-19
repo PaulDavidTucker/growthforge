@@ -5,20 +5,35 @@ import MainLogo from "../Images/Mainlogo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  // NEW: Separate state for controlling display (to allow transition before hiding)
+  const [displayNav, setDisplayNav] = useState("none");
 
   useEffect(() => {
-    if (isOpen) {
-      // Add a class to the body to prevent scrolling
-      document.body.classList.add("body-no-scroll");
-    } else {
-      // Remove the class to allow scrolling again
-      document.body.classList.remove("body-no-scroll");
-    }
+    console.log(window.innerWidth);
+    if (window.innerWidth < 992) {
+      if (isOpen) {
+        // When opening: Immediately show and allow scrolling prevention
+        setDisplayNav("flex");
+        document.body.classList.add("body-no-scroll");
+      } else {
+        // When closing: Delay hiding to allow slide-out transition (300ms)
+        const timeoutId = setTimeout(() => {
+          setDisplayNav("none");
+        }, 300); // Matches CSS transition duration
 
-    // Cleanup function: ensures the class is removed if the component unmounts
-    return () => {
-      document.body.classList.remove("body-no-scroll");
-    };
+        document.body.classList.remove("body-no-scroll");
+
+        // Cleanup timeout if component unmounts
+        return () => clearTimeout(timeoutId);
+      }
+
+      // General cleanup on unmount
+      return () => {
+        document.body.classList.remove("body-no-scroll");
+      };
+    } else {
+      setDisplayNav("flex");
+    }
   }, [isOpen]);
 
   const toggleMenu = () => {
@@ -33,7 +48,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <NavLink to="/" className="icon">
-          <img src={MainLogo} alt="LogoImage"></img>
+          <img src={MainLogo} alt="LogoImage" />
         </NavLink>
 
         {/* Hamburger toggle button */}
@@ -47,7 +62,10 @@ const Header = () => {
           <span className="bar"></span>
         </button>
 
-        <nav className={`nav-links ${isOpen ? "active" : ""}`}>
+        <nav
+          className={`nav-links ${isOpen ? "active" : ""}`}
+          style={{ display: displayNav }}
+        >
           <NavLink to="/" activeClassName="active" exact onClick={closeMenu}>
             Home
           </NavLink>
@@ -73,7 +91,7 @@ const Header = () => {
         </nav>
       </div>
 
-      {isOpen && <div className="backdrop" onClick={closeMenu}></div>}
+      {isOpen && <div className="backdrop" onClick={closeMenu} />}
     </header>
   );
 };

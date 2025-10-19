@@ -38,7 +38,7 @@
     right: 25px;
     width: 370px;
     max-width: calc(100% - 40px);
-    height: 30em;
+    height: 38em;
     max-height: calc(100% - 200px);
 
     background: linear-gradient(
@@ -115,6 +115,8 @@
     color: var(--text-secondary);
     align-self: flex-start;
     border-bottom-left-radius: 4px;
+    white-space: pre-line; /* Preserves newlines and wraps text naturally */
+    word-wrap: break-word;
 }
 .chat-message.user {
     background: var(--primary-accent);

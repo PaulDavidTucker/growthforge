@@ -7,7 +7,6 @@
     position: relative;
     overflow: hidden;
 
-    /* The animated background gradient */
     background: linear-gradient(
         315deg,
         var(--background-dark),
@@ -75,7 +74,6 @@
 }
 
 .service-card {
-    /* Most styling is now handled by the .glass-card class */
     text-align: center;
 }
 
@@ -90,15 +88,15 @@
 }
 
 .service-card:hover {
-    border: 1px solid rgba(0, 119, 255, 0.5); /* Glowing border on hover */
+    border: 1px solid rgba(0, 119, 255, 0.5);
 }
 
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 3rem; /* Reduce font size on mobile */
+        font-size: 4rem;
     }
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 2.1rem;
     }
     .hero {
         padding: 6rem 0;

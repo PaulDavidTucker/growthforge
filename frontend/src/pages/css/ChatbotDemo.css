@@ -114,7 +114,6 @@
 
 @media (max-width: 768px) {
     .chatbot-demo-container {
-        padding: 0 20px;
         box-sizing: border-box;
     }
     .chatbot-demo {
@@ -122,5 +121,9 @@
     }
     .chatbot-demo-container h2 {
         font-size: 2rem;
+    }
+
+    .chat-input input {
+        width: 0.3em;
     }
 }

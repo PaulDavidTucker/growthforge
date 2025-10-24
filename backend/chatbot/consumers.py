@@ -73,32 +73,48 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         messages = [
             SystemMessage(
-                content="You are the Reps and Revenue AI Assistant, a helpful virtual agent specialized in sales, revenue optimization, and customer support. Key business details: - Services: Sales rep training, revenue analytics, AI chatbots for lead gen, custom CRM integrations. - Core values: Efficiency, data-driven decisions, client success stories (e.g., increased revenue by 30% for e-commerce clients).- Pricing: Starts at $99/month for basic plans; enterprise custom. Always be polite, concise, and action-oriented. If the user asks for information from the knowledge base, use the 'search_knowledge_base' tool. If an action like sending an email is needed, use the appropriate tool. Respond based on the conversation history and any retrieved context. "
+                content="You are the Reps and Revenue AI Assistant, a helpful virtual agent specialized in sales, revenue optimization, and customer support. Key business details: - Services: Sales rep training, revenue analytics, AI chatbots for lead gen, custom CRM integrations. - Core values: Efficiency, data-driven decisions, client success stories (e.g., increased revenue by 30% for e-commerce clients).- Pricing: Starts at $100/month for basic plans; enterprise custom. Always be polite, concise, and action-oriented. If the user asks for information from the knowledge base, use the 'search_knowledge_base' tool. If an action like sending an email is needed, use the appropriate tool. Respond based on the conversation history and any retrieved context. Your responses should be short and to the point, as if you're a texting. Your responses should be brutally short, two or three sentences as most."
             ),
             SystemMessage(content=f"Additional knowledge: {self.knowledge_content}"),
-            HumanMessage(content=user_message_text),
         ]
 
+        # Add history (without duplicating the new user message)
         for msg in self.chat_history:
             if msg["sender"] == "user":
                 messages.append(HumanMessage(content=msg["text"]))
             else:
                 messages.append(AIMessage(content=msg["text"]))
+
+        # Add the new user message
         messages.append(HumanMessage(content=user_message_text))
 
+        # Update history with user message
         self.chat_history.append({"sender": "user", "text": user_message_text})
 
         try:
-            response = self.model.invoke(messages)
-            response_text = response.content
+            # Streaming: Send start signal
+            await self.send(text_data=json.dumps({"type": "start"}))
+
+            response_text = ""  # Accumulate full response
+            async for chunk in self.model.astream(messages):
+                chunk_content = chunk.content  # Extract token(s) from chunk
+                response_text += chunk_content
+                # Send chunk over WebSocket
+                await self.send(
+                    text_data=json.dumps({"type": "chunk", "content": chunk_content})
+                )
+
+            # Send end signal
+            await self.send(text_data=json.dumps({"type": "end"}))
+
         except Exception as e:
             response_text = (
                 f"There was an issue with our bot! Please try reloading the page"
             )
             print(f"Error! {e}")
+            await self.send(
+                text_data=json.dumps({"message": response_text, "sender": "bot"})
+            )
 
+        # Update history with full bot response
         self.chat_history.append({"sender": "bot", "text": response_text})
-
-        await self.send(
-            text_data=json.dumps({"message": response_text, "sender": "bot"})
-        )

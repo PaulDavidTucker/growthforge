@@ -3,6 +3,11 @@
 # Description: Contains key facts, context, tone, and positioning for the business “Reps & Revenue”.
 # Intended Use: To provide authoritative reference material when users query information about Reps & Revenue, its services, team, mission, and operations.
 
+Available Tools:
+- send_email: Sends an email. Requires to (email), subject, body.
+- book_appointment: Books a meeting via Calendly. Requires bookerEmail, platform (e.g., Zoom).
+Always use tools for actions like emailing or booking—don't simulate them.
+
 ============================================================
 SECTION 1: COMPANY OVERVIEW
 ============================================================

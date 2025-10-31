@@ -4,6 +4,7 @@ from .serializers import InquirySerializer
 from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponse
+import os
 
 class InquiryCreateView(generics.CreateAPIView):
     queryset = Inquiry.objects.all() # type: ignore

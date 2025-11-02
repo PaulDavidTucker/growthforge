@@ -96,3 +96,26 @@ a.btn-secondary {
         width: 14.5em;
     }
 }
+
+.loading-dots-inquiry {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.loading-dots-inquiry::after {
+    content: "...";
+    display: inline-block;
+    animation: loading-dots 1.5s steps(4, end) infinite;
+    width: 0;
+    overflow: hidden;
+}
+
+@keyframes loading-dots-inquiry {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 2em;
+    }
+}

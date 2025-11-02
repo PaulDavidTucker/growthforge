@@ -9,6 +9,7 @@ const ContactPage = () => {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,6 +21,7 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await axios.post("/api/inquiries/", formData);
       alert("Thank you for your inquiry!");
@@ -27,6 +29,8 @@ const ContactPage = () => {
     } catch (error) {
       console.error("There was an error submitting the form!", error);
       alert("There was an error submitting your form. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -95,8 +99,17 @@ const ContactPage = () => {
               ></textarea>
             </div>
             <div className="button-group">
-              <button type="submit" className="btn" id="contactbtn">
-                Send Inquiry
+              <button
+                type="submit"
+                className="btn"
+                id="contactbtn"
+                disabled={isLoading} // Disable while loading
+              >
+                {isLoading ? (
+                  <span className="loading-dots-inquiry">Sending</span> // Loading text with animation
+                ) : (
+                  "Send Inquiry" // Normal text
+                )}
               </button>
 
               <a

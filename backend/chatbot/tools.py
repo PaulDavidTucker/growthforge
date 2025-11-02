@@ -2,7 +2,8 @@
 from langchain.tools import tool
 from pydantic import BaseModel, Field, validator
 from django.core.mail import send_mail
-import re  # For email validation
+import asyncio
+import re
 
 
 class EmailInput(BaseModel):
@@ -36,9 +37,19 @@ async def send_email(to: str, subject: str, body: str) -> str:
     """Sends an email to a user. Use when the user requests to send information via email."""
     input_data = EmailInput(to=to, subject=subject, body=body)  # Validates
     try:
-        send_mail(subject, body, "info@repsandrevenue.com", [to])
+        print(f"Preparing to send email to {to} with subject '{subject}'")
+        await asyncio.to_thread(
+            send_mail,
+            subject,
+            body,
+            "info@repsandrevenue.com",
+            [to],
+            fail_silently=False,
+        )
+        print("Email sent successfully!")  # Success print
         return "Email sent successfully."
     except Exception as e:
+        print(f"Email sending failed: {str(e)}")  # Error print
         return f"Failed to send email: {str(e)}"
 
 

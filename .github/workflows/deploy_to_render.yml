@@ -18,6 +18,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: Deploy
     if: |
       github.event_name == 'push' ||
       (github.event_name == 'pull_request' && github.event.pull_request.merged == true) ||
@@ -34,7 +35,7 @@ jobs:
             if [ "${{ github.event.inputs.deploy }}" = "yes" ]; then
               echo "deploy=true" >> $GITHUB_OUTPUT
             else
-              echo "deploy=false" >> $GITHER_OUTPUT
+              echo "deploy=false" >> $GITHUB_OUTPUT
               echo "Skipping deployment as per UI input."
               exit 0
             fi
@@ -51,12 +52,13 @@ jobs:
 
       - name: Trigger Render Deployment
         if: steps.should-deploy.outputs.deploy == 'true'
-        uses: render-inc/deploy-action@v1.0
-        with:
-          service-id: ${{ secrets.RENDER_SERVICE_ID }}
-          api-key: ${{ secrets.RENDER_API_KEY }}
-          deploy-hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
-          wait-for-success: true
+        run: |
+          RESPONSE=$(curl -s -X POST -d '' -w "%{http_code}" ${{ secrets.RENDER_DEPLOY_HOOK }})
+          if [[ $RESPONSE -ge 200 && $RESPONSE -lt 300 ]]; then
+            echo "Deployment triggered successfully! (HTTP $RESPONSE)"
+          else
+            echo "Deployment trigger failed! (HTTP $RESPONSE)" && exit 1
+          fi
 
       - name: Send Notification
         if: always() && steps.should-deploy.outputs.deploy == 'true'

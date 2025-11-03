@@ -48,7 +48,7 @@ jobs:
       - name: Trigger Render Deployment
         if: steps.should-deploy.outputs.deploy == 'true'
         run: |
-          RESPONSE=$(curl -s -X POST -d '' -w "%{http_code}" ${{ secrets.RENDER_DEPLOY_HOOK }})
+          RESPONSE=$(curl -s -X POST -d '' -w "%{http_code}" -o /dev/null ${{ secrets.RENDER_DEPLOY_HOOK }})
           if [[ $RESPONSE -ge 200 && $RESPONSE -lt 300 ]]; then
             echo "Deployment triggered successfully! (HTTP $RESPONSE)"
           else

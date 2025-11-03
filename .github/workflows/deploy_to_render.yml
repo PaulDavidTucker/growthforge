@@ -18,7 +18,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: Deploy
+    environment: deploy # Adds approval step (configure in repo Settings > Environments)
     if: |
       github.event_name == 'push' ||
       (github.event_name == 'pull_request' && github.event.pull_request.merged == true) ||
@@ -32,6 +32,7 @@ jobs:
         id: should-deploy
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # For manual runs, check the input
             if [ "${{ github.event.inputs.deploy }}" = "yes" ]; then
               echo "deploy=true" >> $GITHUB_OUTPUT
             else
@@ -40,14 +41,8 @@ jobs:
               exit 0
             fi
           else
-            COMMIT_MESSAGE=$(git log --format=%B -n 1 ${{ github.sha }})
-            if echo "$COMMIT_MESSAGE" | grep -iq "deploy=yes"; then
-              echo "deploy=true" >> $GITHUB_OUTPUT
-            else
-              echo "deploy=false" >> $GITHUB_OUTPUT
-              echo "No 'deploy=yes' in commit message. Skipping."
-              exit 0
-            fi
+            # For push/PR merge: Always deploy if approved (no commit message check)
+            echo "deploy=true" >> $GITHUB_OUTPUT
           fi
 
       - name: Trigger Render Deployment

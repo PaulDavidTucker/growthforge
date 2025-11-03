@@ -16,14 +16,11 @@ from inquiries.views import InquiryCreateView, sitemap_view
 from subscribers.views import SubscriberCreateView
 from testimonials.views import TestimonialViewSet
 
-# --- API Router Setup ---
 router = DefaultRouter()
 router.register(r"casestudies", CaseStudyViewSet, basename="casestudy")
 router.register(r"blog", PostViewSet, basename="post")
 router.register(r"testimonials", TestimonialViewSet, basename="testimonial")
 
-# --- Main URL Patterns (WITHOUT the catch-all) ---
-# Define all your specific application routes first.
 urlpatterns = [
     # 1. Admin, API, and specific file routes
     path("admin/", admin.site.urls),
@@ -33,19 +30,35 @@ urlpatterns = [
     path(
         "favicon.ico",
         static_serve,
-        {"path": "favicon.ico", "document_root": os.path.join(settings.BASE_DIR, "frontend", "public")},
+        {
+            "path": "favicon.ico",
+            "document_root": os.path.join(settings.BASE_DIR, "frontend", "public"),
+        },
     ),
     path("sitemap.xml", sitemap_view, name="sitemap"),
 ]
 
-# 2. Add Media and Static file serving patterns for DEVELOPMENT ONLY
-# These are now added BEFORE the catch-all.
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # Local dev auto-serving (for DEBUG=True)
+    from django.conf.urls.static import static
 
-# 3. The React App Catch-all (MUST BE THE VERY LAST THING)
-# This appends the final "match anything" pattern after all specific patterns
-# (including media) have been defined.
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # Production: Explicitly route static/media with serve (WhiteNoise handles MIME)
+    urlpatterns += [
+        re_path(
+            r"^static/(?P<path>.*)$",
+            static_serve,
+            {"document_root": settings.STATIC_ROOT},
+        ),
+        re_path(
+            r"^media/(?P<path>.*)$",
+            static_serve,
+            {"document_root": settings.MEDIA_ROOT},
+        ),
+    ]
+
 urlpatterns += [
     re_path(r"^.*$", TemplateView.as_view(template_name="index.html")),
 ]

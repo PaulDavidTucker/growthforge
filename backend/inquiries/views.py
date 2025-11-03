@@ -23,13 +23,13 @@ class InquiryCreateView(generics.CreateAPIView):
         from_email = settings.DEFAULT_FROM_EMAIL
         try:
             print("Sending an email....")
-            # send_mail(
-            #     subject,
-            #     body,
-            #     from_email,
-            #     [from_email],
-            #     fail_silently=False,
-            # )
+            send_mail(
+                subject,
+                body,
+                from_email,
+                [from_email],
+                fail_silently=False,
+            )
             print(f"Email sent to: {from_email}")
         except Exception as e:
             print(f"Email sending failed: {str(e)}")

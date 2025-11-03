@@ -9,7 +9,6 @@ const Header = () => {
   const [displayNav, setDisplayNav] = useState("none");
 
   useEffect(() => {
-    console.log(window.innerWidth);
     if (window.innerWidth < 992) {
       if (isOpen) {
         // When opening: Immediately show and allow scrolling prevention

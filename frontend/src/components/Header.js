@@ -87,6 +87,9 @@ const Header = () => {
           <NavLink to="/contact" activeClassName="active" onClick={closeMenu}>
             Contact
           </NavLink>
+          <NavLink to="/chatbot/docs" className="nav-link">
+            Chatbot Docs
+          </NavLink>
         </nav>
       </div>
 

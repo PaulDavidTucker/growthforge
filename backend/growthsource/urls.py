@@ -1,18 +1,19 @@
 # backend/growthsource/urls.py
 
-from django.contrib import admin
-from django.urls import path, include, re_path
-from django.views.generic import TemplateView
-from django.conf import settings
-from django.conf.urls.static import static
-from rest_framework.routers import DefaultRouter
-from django.views.static import serve as static_serve
 import os
 
 # --- View Imports ---
 from blog.views import PostViewSet
 from casestudies.views import CaseStudyViewSet
+from chatbot import views
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path, re_path
+from django.views.generic import TemplateView
+from django.views.static import serve as static_serve
 from inquiries.views import InquiryCreateView, sitemap_view
+from rest_framework.routers import DefaultRouter
 from subscribers.views import SubscriberCreateView
 from testimonials.views import TestimonialViewSet
 
@@ -25,6 +26,12 @@ urlpatterns = [
     # 1. Admin, API, and specific file routes
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
+    path("api/chatbot/dashboard/", views.dashboard_api, name="chatbot_dashboard_api"),
+    path(
+        "api/chatbot/client/<int:client_id>/",
+        views.client_detail_api,
+        name="chatbot_client_api",
+    ),
     path("api/inquiries/", InquiryCreateView.as_view(), name="inquiry-create"),
     path("api/subscribe/", SubscriberCreateView.as_view(), name="subscriber-create"),
     path(

@@ -33,12 +33,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
             print(f"Error loading knowledge file: {e}")
             self.knowledge_content = ""
 
-        # system_messages = [
-        #     SystemMessage(
-        #         content=f"You are the Reps and Revenue AI Assistant, a helpful virtual agent specialized in sales, revenue optimization, and customer support. Key business details: - Services: Sales rep training, revenue analytics, AI chatbots for lead gen, custom CRM integrations. - Core values: Efficiency, data-driven decisions, client success stories (e.g., increased revenue by 30% for e-commerce clients).- Pricing: Starts at $100/month for basic plans; enterprise custom. Always be polite, concise, and action-oriented. If the user asks for information from the knowledge base, use the 'search_knowledge_base' tool. If an action like sending an email is needed, use the appropriate tool. Respond based on the conversation history and any retrieved context. Your responses should be short and to the point, as if you're a texting. Your responses should be brutally short, two or three sentences as most. {self.knowledge_content}"
-        #     )
-        # ]
-
         model = init_chat_model(
             model="openai:gpt-5-mini",
             temperature=0.1,

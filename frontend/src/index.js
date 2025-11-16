@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { HelmetProvider } from "react-helmet-async";
 import reportWebVitals from "./reportWebVitals";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
 
 // --- CSRF Configuration ---

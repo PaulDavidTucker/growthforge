@@ -14,7 +14,7 @@ const HomePage = () => {
       <section className="hero">
         <div className="container">
           <h1 className="hero-title">Reps &amp; Revenue</h1>
-          <h2 className="hero-subtitle">Build for Revenue</h2>
+          <h2 className="hero-subtitle">Built for Revenue</h2>
           <p className="subtitle">
             We build automated systems that drive sales, streamline customer
             service, and capture leads, so you can focus on what you do best.

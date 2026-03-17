@@ -1,15 +1,15 @@
 # backend/chatbot/consumers.py
 import json
-from channels.generic.websocket import AsyncWebsocketConsumer
-from langchain.agents import create_agent
-from langchain_openai import ChatOpenAI
-from langchain.chat_models import init_chat_model
-from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
-from django.conf import settings
-
 import os
+
 import environ
-from .tools import send_email, book_appointment
+from channels.generic.websocket import AsyncWebsocketConsumer
+from django.conf import settings
+from langchain.agents import create_agent
+from langchain.chat_models import init_chat_model
+from langchain_core.messages import AIMessage, HumanMessage
+
+from .tools import book_appointment, send_email
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
@@ -24,11 +24,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
         key = env("OPENAI_API_KEY", default=os.environ.get("OPENAI_API_KEY"))
 
         try:
-            knowledge_file_path = os.path.join(
-                settings.BASE_DIR, "knowledge.txt"
-            )  # Adjust path if needed
+            knowledge_file_path = os.path.join(settings.BASE_DIR, "knowledge.txt")
             with open(knowledge_file_path, "r") as f:
-                self.knowledge_content = f.read().strip()  # Load full text
+                self.knowledge_content = f.read().strip()
         except Exception as e:
             print(f"Error loading knowledge file: {e}")
             self.knowledge_content = ""
@@ -96,13 +94,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
             else:
                 history_messages.append(AIMessage(content=msg["text"]))
 
-        # Update history with user message
         self.chat_history.append({"sender": "user", "text": user_message_text})
 
         try:
             await self.send(text_data=json.dumps({"type": "start"}))
 
-            response_text = ""  # Accumulate full response
+            response_text = ""
 
             async for chunk in self.agent.astream(
                 {
@@ -113,7 +110,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 print(f"Chunk type: {type(chunk)}, content: {chunk}")
 
                 if isinstance(chunk, dict):
-                    # Handle tool calls if present
                     if "actions" in chunk:
                         for action in chunk["actions"]:
                             print(
@@ -133,7 +129,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
                                     )
                                 )
 
-                    # Fallback: check for direct messages key
                     elif "messages" in chunk:
                         for message in chunk["messages"]:
                             if hasattr(message, "content") and message.content:

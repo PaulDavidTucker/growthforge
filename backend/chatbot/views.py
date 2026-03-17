@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
 
-# Create your views here.
 from django.contrib.admin.views.decorators import staff_member_required
 from django.db.models import Avg, Count
 from django.http import JsonResponse

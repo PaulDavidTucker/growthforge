@@ -32,8 +32,8 @@ const AboutPage = () => {
           to helping small businesses achieve exponential growth through
           technology and automation. Reps &amp; Revenue is a small business
           founded by three passionate individuals combining their expertise. We
-          help fitness businesses bring in high-value members without the heavy
-          lifting
+          partner with ambitious businesses to generate them revenue without the
+          heavy lifting.
         </p>
         <div className="mission-section">
           <h2>Our Mission</h2>
@@ -44,7 +44,9 @@ const AboutPage = () => {
             to create sustainable growth and free up entrepreneurs to focus on
             innovation. Small businesses are the cornerstone of civilisation,
             with individuals working hard to juggle the pressures of scaling
-            something they care deeply about.
+            something they care deeply about. We don't just provide a service,
+            we align ourselves fully with our client's objectives, treating
+            their goals as our own.
           </p>
         </div>
         <Testimonials />

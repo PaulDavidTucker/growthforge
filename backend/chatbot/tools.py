@@ -1,10 +1,13 @@
 # backend/chatbot/tools.py
+import logging
 from langchain.tools import tool
 from pydantic import BaseModel, Field, validator
 from django.core.mail import send_mail
 import asyncio
 import re
 from .middleware import tool_call_limiter, session_manager, current_session_id
+
+logger = logging.getLogger(__name__)
 
 
 class EmailInput(BaseModel):
@@ -54,7 +57,7 @@ async def send_email(to: str, subject: str, body: str) -> str:
 
     input_data = EmailInput(to=to, subject=subject, body=body)
     try:
-        print(f"Preparing to send email to {to} with subject '{subject}'")
+        logger.info("Preparing to send email to %s", to)
         await asyncio.to_thread(
             send_mail,
             subject,
@@ -63,10 +66,10 @@ async def send_email(to: str, subject: str, body: str) -> str:
             [to],
             fail_silently=False,
         )
-        print("Email sent successfully!")
+        logger.info("Email sent successfully to %s", to)
         return "Email sent successfully."
     except Exception as e:
-        print(f"Email sending failed: {str(e)}")
+        logger.error("Email sending failed: %s", str(e))
         return f"Failed to send email: {str(e)}"
 
 
@@ -79,7 +82,8 @@ async def book_appointment(bookerEmail: str, platform: str) -> str:
 
     input_data = CalendarInput(bookerEmail=bookerEmail, platform=platform)
     try:
-        print(f"Mock booking for {bookerEmail} on {platform}")
+        logger.info("Processing booking for %s on %s", bookerEmail, platform)
         return f"Appointment booked for {bookerEmail} on {platform}! (Mock—real integration coming soon)"
     except Exception as e:
+        logger.error("Booking failed: %s", str(e))
         return f"Failed to book appointment: {str(e)}"

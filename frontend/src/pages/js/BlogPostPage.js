@@ -6,6 +6,26 @@ import "../css/BlogPostPage.css";
 import { Helmet } from "react-helmet-async";
 import LoadingSpinner from "../../components/LoadingSpinner"; // Adjust path if needed
 
+// Simple HTML sanitizer to prevent XSS attacks
+const sanitizeHtml = (html) => {
+  if (!html) return "";
+  
+  // Create a temporary div to parse HTML
+  const tempDiv = document.createElement('div');
+  tempDiv.textContent = html;  // This escapes HTML tags
+  
+  // Now we manually convert allowed tags back
+  let sanitized = tempDiv.innerHTML;
+  
+  // Allow only specific safe HTML tags
+  const allowedTags = ['p', 'br', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a'];
+  const tagPattern = new RegExp(`&lt;(/?)(${allowedTags.join('|')})(.*?)&gt;`, 'gi');
+  
+  sanitized = sanitized.replace(tagPattern, '<$1$2$3>');
+  
+  return sanitized;
+};
+
 const BlogPostPage = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -43,14 +63,14 @@ const BlogPostPage = () => {
     fetchPost();
   }, [slug]);
 
-  // NEW: Utility function to format plain text with line breaks/paragraphs
-  // If content already looks like HTML (has tags), render it as-is
+  // Utility function to format plain text with line breaks/paragraphs
+  // Always sanitizes output to prevent XSS attacks
   const formatContent = (content) => {
     if (!content) return "";
 
-    // Quick check: If it contains HTML tags, assume it's pre-formatted
+    // Quick check: If it contains HTML tags, sanitize it
     if (/<[a-z][\s\S]*>/i.test(content)) {
-      return content; // Return raw HTML
+      return sanitizeHtml(content); // Sanitize HTML before rendering
     }
 
     // Split by double newlines for paragraphs

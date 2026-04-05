@@ -1,4 +1,5 @@
 import re
+from django.core.validators import RegexValidator
 from rest_framework import serializers
 from .models import Inquiry
 
@@ -7,7 +8,7 @@ class InquirySerializer(serializers.ModelSerializer):
     name = serializers.CharField(
         max_length=100,
         validators=[
-            serializers.RegexValidator(
+            RegexValidator(
                 regex=r'^[\w\s\-\'\.]+$',
                 message='Name can only contain letters, numbers, spaces, hyphens, apostrophes, and periods.'
             )

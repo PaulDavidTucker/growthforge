@@ -1,5 +1,6 @@
 # backend/chatbot/consumers.py
 import json
+import logging
 from channels.generic.websocket import AsyncWebsocketConsumer
 from langchain.agents import create_agent
 from langchain.chat_models import init_chat_model
@@ -10,6 +11,8 @@ import os
 import environ
 from .tools import send_email, book_appointment
 from .middleware import tool_call_limiter, session_manager, current_session_id
+
+logger = logging.getLogger(__name__)
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
@@ -33,7 +36,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             with open(knowledge_file_path, "r") as f:
                 self.knowledge_content = f.read().strip()
         except Exception as e:
-            print(f"Error loading knowledge file: {e}")
+            logger.error("Error loading knowledge file: %s", e)
             self.knowledge_content = ""
 
         model = init_chat_model(
@@ -125,13 +128,15 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     + [HumanMessage(content=user_message_text)]
                 }
             ):
-                print(f"Chunk type: {type(chunk)}, content: {chunk}")
+                logger.debug("Chunk type: %s, content: %s", type(chunk), chunk)
 
                 if isinstance(chunk, dict):
                     if "actions" in chunk:
                         for action in chunk["actions"]:
-                            print(
-                                f"Tool called: {action.tool} with input {action.tool_input}"
+                            logger.info(
+                                "Tool called: %s by session %s",
+                                action.tool,
+                                self.rate_limit_session_id[:8]
                             )
                             self.tool_calls += 1
                             session_manager.increment_tool_calls(self.rate_limit_session_id)
@@ -164,7 +169,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             response_text = (
                 f"There was an issue with our bot! Please try reloading the page"
             )
-            print(f"Error! {e}")
+            logger.error("Chatbot error: %s", e)
             await self.send(
                 text_data=json.dumps({"message": response_text, "sender": "bot"})
             )

@@ -2,14 +2,14 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 from langchain.agents import create_agent
-from langchain_openai import ChatOpenAI
 from langchain.chat_models import init_chat_model
-from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
+from langchain_core.messages import HumanMessage, AIMessage
 from django.conf import settings
 
 import os
 import environ
 from .tools import send_email, book_appointment
+from .middleware import tool_call_limiter, session_manager, current_session_id
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
@@ -17,6 +17,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
         self.session = self.scope["session"]
         self.chat_history = self.session.get("chat_history", [])
         self.tool_calls = self.session.get("tool_calls", 0)
+
+        self.rate_limit_session_id = self.scope.get("rate_limit_session_id", "")
+        self.client_ip = self.scope.get("client_ip", "unknown")
 
         env = environ.Env()
         environ.Env.read_env(os.path.join(settings.BASE_DIR, ".env"))
@@ -26,18 +29,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
         try:
             knowledge_file_path = os.path.join(
                 settings.BASE_DIR, "knowledge.txt"
-            )  # Adjust path if needed
+            )
             with open(knowledge_file_path, "r") as f:
-                self.knowledge_content = f.read().strip()  # Load full text
+                self.knowledge_content = f.read().strip()
         except Exception as e:
             print(f"Error loading knowledge file: {e}")
             self.knowledge_content = ""
-
-        # system_messages = [
-        #     SystemMessage(
-        #         content=f"You are the Reps and Revenue AI Assistant, a helpful virtual agent specialized in sales, revenue optimization, and customer support. Key business details: - Services: Sales rep training, revenue analytics, AI chatbots for lead gen, custom CRM integrations. - Core values: Efficiency, data-driven decisions, client success stories (e.g., increased revenue by 30% for e-commerce clients).- Pricing: Starts at $100/month for basic plans; enterprise custom. Always be polite, concise, and action-oriented. If the user asks for information from the knowledge base, use the 'search_knowledge_base' tool. If an action like sending an email is needed, use the appropriate tool. Respond based on the conversation history and any retrieved context. Your responses should be short and to the point, as if you're a texting. Your responses should be brutally short, two or three sentences as most. {self.knowledge_content}"
-        #     )
-        # ]
 
         model = init_chat_model(
             model="openai:gpt-5-mini",
@@ -73,6 +70,13 @@ class ChatConsumer(AsyncWebsocketConsumer):
         await self.channel_layer.group_discard("chat", self.channel_name)
 
     async def receive(self, text_data):
+        token = current_session_id.set(self.rate_limit_session_id)
+        try:
+            await self._handle_message(text_data)
+        finally:
+            current_session_id.reset(token)
+
+    async def _handle_message(self, text_data):
         text_data_json = json.loads(text_data)
         user_message_text = text_data_json.get("message", "")
 
@@ -81,7 +85,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         )
 
         if user_message_count >= 15:
-            response_text = "You've reached the message limit (10 per session). For more help, please contact support or start a new session."
+            response_text = "You've reached the message limit (15 per session). For more help, please contact support or start a new session."
             await self.send(
                 text_data=json.dumps({"message": response_text, "sender": "bot"})
             )
@@ -94,7 +98,13 @@ class ChatConsumer(AsyncWebsocketConsumer):
             )
             return
 
-        # Prepare history as messages
+        if not tool_call_limiter.is_allowed(self.client_ip):
+            response_text = "Tool usage rate limit exceeded. Please try again later or contact support."
+            await self.send(
+                text_data=json.dumps({"message": response_text, "sender": "bot"})
+            )
+            return
+
         history_messages = []
         for msg in self.chat_history:
             if msg["sender"] == "user":
@@ -102,13 +112,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
             else:
                 history_messages.append(AIMessage(content=msg["text"]))
 
-        # Update history with user message
         self.chat_history.append({"sender": "user", "text": user_message_text})
 
         try:
             await self.send(text_data=json.dumps({"type": "start"}))
 
-            response_text = ""  # Accumulate full response
+            response_text = ""
 
             async for chunk in self.agent.astream(
                 {
@@ -119,15 +128,14 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 print(f"Chunk type: {type(chunk)}, content: {chunk}")
 
                 if isinstance(chunk, dict):
-                    # Handle tool calls if present
                     if "actions" in chunk:
                         for action in chunk["actions"]:
                             print(
                                 f"Tool called: {action.tool} with input {action.tool_input}"
                             )
                             self.tool_calls += 1
+                            session_manager.increment_tool_calls(self.rate_limit_session_id)
 
-                    # Handle the nested structure: chunk['model']['messages']
                     if "model" in chunk and "messages" in chunk["model"]:
                         for message in chunk["model"]["messages"]:
                             if hasattr(message, "content") and message.content:
@@ -139,7 +147,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
                                     )
                                 )
 
-                    # Fallback: check for direct messages key
                     elif "messages" in chunk:
                         for message in chunk["messages"]:
                             if hasattr(message, "content") and message.content:
@@ -162,5 +169,4 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 text_data=json.dumps({"message": response_text, "sender": "bot"})
             )
 
-        # Update history with full bot response
         self.chat_history.append({"sender": "bot", "text": response_text})

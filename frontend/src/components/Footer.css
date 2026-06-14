@@ -100,8 +100,10 @@
     }
 }
 
-a {
+.footer-about a {
     color: #aaa;
+    margin-right: 0.75em;
+    white-space: nowrap;
 }
 a#priv {
     margin-left: 0.5em;

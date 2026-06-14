@@ -17,3 +17,7 @@ daphne --chdir backend -p 8000 growthsource.asgi:application
 Run command:
 
 daphne --chdir backend -b 0.0.0.0 -p 10000 --access-log - --proxy-headers growthsource.asgi:application
+
+To start the thing for real:
+
+daphne -b 0.0.0.0 -p 8000 growthsource.asgi:application

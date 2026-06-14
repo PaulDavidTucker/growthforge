@@ -12,7 +12,7 @@ import os
 # --- View Imports ---
 from blog.views import PostViewSet
 from casestudies.views import CaseStudyViewSet
-from inquiries.views import InquiryCreateView, sitemap_view
+from inquiries.views import InquiryCreateView, OnboardingSubmissionCreateView, sitemap_view
 from subscribers.views import SubscriberCreateView
 from testimonials.views import TestimonialViewSet
 
@@ -26,6 +26,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
     path("api/inquiries/", InquiryCreateView.as_view(), name="inquiry-create"),
+    path("api/onboarding/", OnboardingSubmissionCreateView.as_view(), name="onboarding-create"),
     path("api/subscribe/", SubscriberCreateView.as_view(), name="subscriber-create"),
     path(
         "favicon.ico",

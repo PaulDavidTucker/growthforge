@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/HomePage.css";
-import FunnelPreview from "../../components/FunnelPreview";
-// import ClientLogos from "../../components/ClientLogos";
+import WebsiteShowcase from "../../components/WebsiteShowcase";
+import OurProcess from "../../components/OurProcess";
 
 const HomePage = () => {
   useEffect(() => {
@@ -16,51 +16,86 @@ const HomePage = () => {
           <h1 className="hero-title">Reps &amp; Revenue</h1>
           <h2 className="hero-subtitle">Built for Revenue</h2>
           <p className="subtitle">
-            We build automated systems that drive sales, streamline customer
-            service, and capture leads, so you can focus on what you do best.
+            Professional websites for small businesses. Pay a £50 deposit to get
+            started - if you love the site, just £250 covers the full build, one
+            year of hosting, unlimited updates and ongoing support.
           </p>
           <Link to="/packages" className="btn">
-            Explore Our Packages
+            See Website Pricing
           </Link>
           <div className="social-proof">
-            <p>Trusted by innovative businesses across the globe</p>
+            <p>Trusted by trades, coaches, consultants and creatives across the UK</p>
           </div>
         </div>
       </section>
-
-      {/* <ClientLogos />*/}
 
       <section className="services">
         <div className="container">
-          <h2 className="section-title">What We Do</h2>
+          <h2 className="section-title">What You Get</h2>
           <div className="service-grid">
-            {/* Now using the reusable glass-card style */}
             <div className="service-card glass-card">
-              <h3>Sales &amp; Growth Funnels</h3>
+              <h3>Custom Designed Website</h3>
               <p>
-                Custom-built funnels integrated with targeted ad campaigns to
-                convert prospects into loyal customers.
+                A mobile-ready, professionally designed site built around your
+                brand, your services and your goals.
               </p>
             </div>
             <div className="service-card glass-card">
-              <h3>AI Chatbot Applications</h3>
+              <h3>£50 Deposit, Risk-Free Start</h3>
               <p>
-                Automate customer support, answer FAQs, and qualify leads 24/7
-                with intelligent, conversational AI.
+                We begin building from just £50. Unlimited revisions are included
+                at no extra cost while we perfect the design.
               </p>
             </div>
             <div className="service-card glass-card">
-              <h3>Lead Automation Outreach</h3>
+              <h3>Hosting, Updates &amp; Support</h3>
               <p>
-                Powerful outreach systems that engage potential clients, turning
-                cold leads into warm opportunities.
+                The £250 completion fee includes a full year of hosting,
+                maintenance, future updates and unlimited assistance.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <FunnelPreview />
+      <section className="pricing-teaser">
+        <div className="container">
+          <h2 className="section-title">Simple, Transparent Pricing</h2>
+          <div className="pricing-grid">
+            <div className="pricing-card glass-card">
+              <h3>Deposit</h3>
+              <div className="price">£50</div>
+              <p className="description">Non-refundable deposit to start your build.</p>
+              <ul>
+                <li>✓ Custom website design</li>
+                <li>✓ Unlimited revisions (within reason)</li>
+                <li>✓ Delivered in 4-7 days</li>
+              </ul>
+            </div>
+            <div className="pricing-card glass-card popular">
+              <span className="popular-badge">Most Popular</span>
+              <h3>Full Website</h3>
+              <div className="price">£250</div>
+              <p className="description">Pay only if you love the finished site.</p>
+              <ul>
+                <li>✓ Full website ownership</li>
+                <li>✓ 1 year hosting included</li>
+                <li>✓ Unlimited updates &amp; maintenance</li>
+                <li>✓ Ongoing assistance</li>
+              </ul>
+            </div>
+          </div>
+          <p className="pricing-note">
+            Want more? We also offer CRM integration, chatbots, advanced tooling
+            and fully bespoke solutions.{" "}
+            <Link to="/contact">Contact our sales team</Link> for custom pricing.
+          </p>
+        </div>
+      </section>
+
+      <WebsiteShowcase />
+
+      <OurProcess />
     </div>
   );
 };

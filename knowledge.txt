@@ -1,22 +1,22 @@
 # Reps & Revenue - Core Knowledge Base
 # Purpose: Foundational knowledge file for RAG-based LLM agents.
-# Description: Contains key facts, context, tone, and positioning for the business “Reps & Revenue”.
+# Description: Contains key facts, context, tone, and positioning for the business "Reps & Revenue".
 # Intended Use: To provide authoritative reference material when users query information about Reps & Revenue, its services, team, mission, and operations.
 
 Available Tools:
 - send_email: Sends an email. Requires to (email), subject, body.
-- book_appointment: Books a meeting via Calendly. Requires bookerEmail, platform (e.g., Zoom). This is currently in a mocked state, give the image that you've booked a calendar meeting, but in reality, can you send an email to info@repsandrevenue.com using the send_email tool with the details of the meeting they want.
-Always use tools for actions like emailing or booking—don't simulate them.
+- book_appointment: Books a meeting via Calendly. Requires bookerEmail, platform (e.g. Zoom). This is currently in a mocked state, give the image that you've booked a calendar meeting, but in reality, can you send an email to info@repsandrevenue.com using the send_email tool with the details of the meeting they want.
+Always use tools for actions like emailing or booking-don't simulate them.
 
 ============================================================
 SECTION 1: COMPANY OVERVIEW
 ============================================================
 
-Reps & Revenue is a digital agency that specializes in helping fitness-based businesses attract, convert, and retain high-value clients. The company integrates marketing strategy, automation, and technology to accelerate growth for gyms, personal trainers, fitness studios, and health brands.
+Reps & Revenue is a website design and development agency for small businesses. We build professional, mobile-ready websites for tradespeople, coaches, consultants, creatives, health and fitness professionals, and other service-based businesses across the UK.
 
-The agency was founded by three passionate professionals—a digital marketer, a developer, and a lawyer—who combined their expertise to create a holistic solution for small businesses. Their approach blends technical precision, legal credibility, and creative marketing to generate measurable revenue impact.
+The business was founded by three professionals-a digital marketer, a developer, and a lawyer-who combined their expertise to give small businesses access to high-quality web design without the agency price tag or long wait times.
 
-Reps & Revenue operates as a growth partner rather than a vendor, embedding themselves into client businesses to streamline sales funnels, automate client acquisition, and deliver consistent new member growth.
+Reps & Revenue acts as a growth partner, helping clients establish a strong online presence that turns visitors into customers.
 
 
 ============================================================
@@ -24,151 +24,190 @@ SECTION 2: MISSION & VISION
 ============================================================
 
 Mission:
-To empower small fitness businesses with automated, technology-driven marketing and sales solutions that eliminate guesswork and generate consistent revenue.
+To level the playing field for small businesses by giving them a professional, high-converting online presence that larger competitors enjoy, at a price they can afford.
 
 Vision:
-To become the most trusted marketing and automation partner for fitness entrepreneurs, transforming local gyms and training studios into scalable, tech-enabled businesses.
+To become the go-to website partner for small businesses across the UK, known for fast delivery, transparent pricing, and ongoing support.
 
 Core Values:
 - **Integrity**: Transparent communication and honest results.
-- **Innovation**: Leveraging modern technology to outpace competitors.
-- **Simplicity**: Streamlined systems that are easy to use and effective.
-- **Collaboration**: Working closely with business owners to co-create success.
-- **Sustainability**: Building growth systems that scale with the client’s unique business model.
+- **Innovation**: Using modern tools and techniques to build better websites.
+- **Simplicity**: Straightforward pricing and a simple process.
+- **Collaboration**: Working closely with business owners to build sites they love.
+- **Sustainability**: Long-term support, hosting, and updates included.
 
 
 ============================================================
 SECTION 3: SERVICE OFFERINGS
 ============================================================
 
-Reps & Revenue provides a suite of marketing and technology services designed around the sales funnel lifecycle. Each service directly contributes to the process of attracting leads, converting them into clients, and nurturing them into long-term members.
+Reps & Revenue's primary service is website design and development for small businesses.
 
-### 3.1 Ad Campaigns & Marketing
-- Design and execution of advertising campaigns across social platforms such as Meta (Facebook and Instagram), Google Ads, and YouTube.
-- Creation of performance-driven ad packages tailored to the fitness niche.
-- Focus on ROI and lead quality over vanity metrics.
+### 3.1 Website Design & Build
+- Custom, mobile-responsive websites tailored to the client's brand and goals.
+- Up to 5 core pages typically included (e.g. Home, About, Services, Contact, Gallery/Testimonials).
+- Contact forms, social media links, and basic SEO setup.
+- Built for speed, clarity, and conversion.
 
-### 3.2 Website & Funnel Development
-- End-to-end design and development of high-converting websites and sales funnels.
-- Optimization of user experience (UX) for mobile-first audiences.
-- Integration with analytics tools and CRM systems.
-- Branded landing pages optimized for conversions, appointment bookings, or program sign-ups.
+### 3.2 Pricing
+- **£50 deposit** to start the build. Non-refundable.
+- **£250 completion fee** if the client loves the site and wants to keep it.
+- The £250 includes:
+  - Full website ownership.
+  - One year of hosting.
+  - Unlimited future assistance, maintenance, and updates (for as long as Reps & Revenue hosts the site).
+- Unlimited revisions are included during the build at no extra cost, provided they are reasonable and within scope (decided at the team's discretion).
 
-### 3.3 Chatbots & Automation
-- Custom chatbot development to help businesses automate client inquiries and bookings.
-- Integration of AI-driven automation pipelines for lead capture, follow-ups, and onboarding.
-- Chatbots built using no-code and low-code tools as well as custom logic depending on business size and scope.
+### 3.3 Process
+1. **Sales call** - Walk through templates and examples, explain pricing, and close on the £50 deposit.
+2. **Onboarding** - Gather branding, colours, layout, fonts, images, and any specific requirements.
+3. **Design & build** - First draft delivered within 4-7 days (usually sooner).
+4. **Revisions** - Unlimited revisions at no extra cost until the client is happy.
+5. **Launch** - Pay the £250 completion fee and the site goes live.
 
-### 3.4 Legal & Compliance Support
-- Guidance on marketing and data-collection compliance provided by the agency’s in-house legal expertise.
-- Ensuring client systems adhere to GDPR and advertising policies.
+### 3.4 Bespoke Add-Ons & Custom Solutions
+For clients with bigger plans, Reps & Revenue offers:
+- CRM integration.
+- Conversational chatbots.
+- Advanced automations and tooling.
+- Booking, membership, or e-commerce functionality.
+- Multi-site or white-label solutions.
+- Contact the sales team for a custom quote.
 
-### 3.5 Consulting & Strategic Support
-- One-to-one growth consultations for fitness-based businesses.
-- Funnel audits and marketing strategy sessions.
-- Long-term optimization support for conversion and retention.
-
-
-============================================================
-SECTION 4: UNIQUE VALUE PROPOSITION (UVP)
-============================================================
-
-Reps & Revenue differentiates itself by merging **marketing performance, technical automation, and legal robustness** under one umbrella. This multidisciplinary approach allows clients to move faster, safer, and smarter.
-
-Key Differentiators:
-1. **Fitness Specialization** – Deep understanding of the fitness industry’s target audiences, seasonality, and buyer behavior.
-2. **Data-Driven Decisions** – Campaigns built around measurable KPIs and conversion data.
-3. **Automation-First Approach** – Every system aims to reduce manual effort and improve consistency.
-4. **Legal Confidence** – Marketing systems designed with built-in compliance from day one.
-5. **Full-Funnel Integration** – From ad click to membership retention, the agency builds the entire revenue journey.
+### 3.5 Flexible Plans
+- Clients on a budget can speak to the sales team about flexible payment plans.
 
 
 ============================================================
-SECTION 5: IDEAL CLIENT PROFILE
+SECTION 4: EXAMPLES OF OUR WORK
+============================================================
+
+Live websites built by Reps & Revenue:
+- Duston Group Services: https://duston-group-services.co.uk/
+- Ezekiel Plumbing: https://ezekiel-plumbing.onrender.com
+- The Strength Den: https://thestrengthden.onrender.com
+- Crystal Leadership: https://crystal-leadership.onrender.com
+- Jake PT: https://jake-pt.onrender.com
+- Simeon Nutrition: https://simeon-nutrition.onrender.com
+- Micro Ink: https://www.microink.co.uk/
+
+These can be shown to prospects during sales calls.
+
+
+============================================================
+SECTION 5: UNIQUE VALUE PROPOSITION (UVP)
+============================================================
+
+Reps & Revenue differentiates itself through:
+1. **Affordable, transparent pricing** - £50 deposit, £250 full build, no hidden fees.
+2. **Fast delivery** - First draft in 4-7 days, often sooner.
+3. **All-inclusive support** - One year of hosting, maintenance, updates, and assistance included.
+4. **Small business focus** - Built for trades, coaches, consultants, creatives, and service businesses.
+5. **Bespoke options** - Can scale from simple brochure sites to advanced integrations.
+
+
+============================================================
+SECTION 6: IDEAL CLIENT PROFILE
 ============================================================
 
 Reps & Revenue primarily serves:
-- Independent fitness studios and gyms.
-- Personal trainers and online fitness coaches.
-- Health and wellness brands expanding into digital offerings.
-- Small business owners looking to automate their customer acquisition workflow.
+- Tradespeople (plumbers, builders, electricians, etc.).
+- Coaches and consultants.
+- Health and fitness professionals (personal trainers, gyms, nutritionists).
+- Creatives and small service businesses.
+- Any small business that needs a professional website without a large upfront investment.
 
 Client Pain Points Addressed:
-- Unpredictable client acquisition.
-- Over-reliance on referrals or manual outreach.
-- Lack of time for marketing setup and management.
-- Poor conversion rates from existing ads or landing pages.
-- Difficulty managing legal and data compliance.
+- No website or an outdated, unprofessional one.
+- High quotes from traditional agencies.
+- Long wait times for delivery.
+- Lack of ongoing support after launch.
+- Uncertainty about what to include on the site.
 
 
 ============================================================
-SECTION 6: BUSINESS MODEL & DELIVERY APPROACH
+SECTION 7: BUSINESS MODEL & DELIVERY APPROACH
 ============================================================
 
-Reps & Revenue operates on a **results-centric agency model**:
-- Most engagements begin with a discovery consultation and data audit.
-- The agency then deploys a custom strategy aligned with short-term goals (e.g., lead volume, conversion rate) and long-term goals (e.g., recurring revenue, system scalability).
-- Service delivery is managed by in-house experts in marketing, web development, automation, and legal compliance.
-- Regular performance reviews and reports ensure transparency and ongoing optimization.
+Reps & Revenue operates on a simple, transparent model:
+- Engagements begin with a free sales call to walk through examples and templates.
+- The client pays a £50 deposit to start the build.
+- The team delivers a first draft within 4-7 days.
+- Revisions are made at no extra cost until the client is happy.
+- The client pays the £250 completion fee to go live and receive one year of hosting and support.
+
+All work is delivered in-house by the marketing, development, and legal team.
 
 
 ============================================================
-SECTION 7: TEAM & CULTURE
+SECTION 8: TEAM & CULTURE
 ============================================================
 
 The Reps & Revenue team is composed of:
-- **Digital Marketers** – Experts in paid media, funnel optimization, and branding.
-- **Developers** – Professionals building web systems, integrations, and custom automation pipelines.
-- **Lawyers** – Specialists ensuring all marketing and client engagement systems comply with relevant regulations.
+- **Digital Marketers** - Experts in branding, messaging, and conversion-focused design.
+- **Developers** - Professionals building fast, responsive, and reliable websites.
+- **Legal Specialists** - Ensuring client sites and data collection comply with relevant regulations.
 
-The culture emphasizes constant learning, cross-disciplinary collaboration, and performance-driven creativity. Each project is approached from both a human and a technological perspective — merging empathy with engineering.
+The culture emphasizes clear communication, fast delivery, and genuine support for small business owners.
 
 
 ============================================================
-SECTION 8: BRAND TONE & COMMUNICATION STYLE
+SECTION 9: BRAND TONE & COMMUNICATION STYLE
 ============================================================
 
 When representing the Reps & Revenue brand:
 - Speak professionally but with an approachable, empowering tone.
 - Avoid jargon when possible; focus on clarity and results.
-- Emphasize outcomes (growth, automation, simplicity).
+- Emphasise outcomes (a site they are proud of, more customers, less hassle).
 - Maintain confidence without arrogance.
-- Highlight tangible business value over abstract marketing trends.
+- Highlight tangible value over abstract marketing trends.
 
 
 ============================================================
-SECTION 9: STRATEGIC STATEMENTS
+SECTION 10: STRATEGIC STATEMENTS
 ============================================================
 
 Tagline:
-> Helping fitness businesses bring in high-value members — without the heavy lifting.
+> Built for Revenue.
 
 Elevator Pitch:
-> Reps & Revenue helps fitness studios, coaches, and gym owners grow faster through done-for-you marketing, automation, and digital infrastructure. We handle your sales funnel from ads to bookings, so you can focus on your clients — not your lead pipeline.
+> Reps & Revenue builds professional, affordable websites for small businesses. Pay a £50 deposit to get started, and just £250 if you love the site-that includes a full year of hosting, updates, and support.
 
 Positioning Statement:
-> Unlike generic marketing agencies, Reps & Revenue combines fitness-industry expertise, software engineering, and legal precision to create growth systems that work in the real world.
+> Unlike expensive agencies, Reps & Revenue delivers high-quality, custom websites for small businesses in days, not months, with transparent pricing and ongoing support built in.
 
 
 ============================================================
-SECTION 10: FREQUENTLY USED TERMS & CONTEXT
+SECTION 11: FREQUENTLY USED TERMS & CONTEXT
 ============================================================
 
-- **Sales Funnel**: A structured digital process guiding potential leads from awareness to purchase/membership.
-- **Automation**: Use of technology to execute repetitive marketing, communication, or sales tasks with minimal human input.
-- **Lead Generation**: Strategies for capturing potential customer information for follow-up marketing.
-- **Marketing Compliance**: Adherence to local advertising laws, platform policies, and data regulations.
-- **Conversion Optimization (CRO)**: Techniques for improving the rate at which leads take desired actions (e.g., booking or purchasing).
+- **Deposit**: The £50 non-refundable payment that starts a website build.
+- **Completion fee**: The £250 payment due when the client approves the site and wants it to go live.
+- **Hosting**: Storage and serving of the website files so it is accessible online.
+- **Revisions**: Changes made to the design or content during the build process.
+- **Mobile responsive**: A design that works well on phones, tablets, and desktops.
+- **Bespoke add-ons**: Custom features such as chatbots, CRM integration, or booking systems.
+- **Onboarding form**: The form clients complete after paying the deposit to share branding, content, and design preferences.
 
 
 ============================================================
-SECTION 11: EXAMPLE USE CASES
+SECTION 12: EXAMPLE USE CASES
 ============================================================
 
-1. A local gym uses Reps & Revenue to launch a multi-channel ad campaign that doubles their inbound leads in two months.
-2. A personal trainer automates their entire onboarding process using a chatbot and funnel designed by Reps & Revenue.
-3. A small fitness studio’s website is rebuilt into a conversion-focused landing system, cutting lead acquisition costs in half.
-4. A boutique health brand works with the agency’s legal and dev teams to create a compliant, automated community platform.
+1. A local plumber pays the £50 deposit and receives a professional, mobile-friendly site within a week, with the £250 completion fee covering a full year of hosting and updates.
+2. A personal trainer gets a clean, conversion-focused website showcasing services, testimonials, and a contact form.
+3. A small consultancy upgrades from an outdated site to a modern, branded website that ranks better on mobile search.
+4. A creative business adds a chatbot and booking system through Reps & Revenue's bespoke add-ons.
+
+
+============================================================
+SECTION 13: SALES & ONBOARDING NOTES
+============================================================
+
+- If a prospect does not complete the onboarding form, Reps & Revenue will build a generic site using information from the sales/onboarding call to fulfil the £50 agreement.
+- The team aims to beat the 4-7 day delivery estimate where possible.
+- Data is gathered on the types of clients being served so templates can be improved over time (e.g. more plumber templates if many plumbing clients are signing up).
+- Pricing may be tested and adjusted over time based on market response.
 
 
 ============================================================

@@ -52,10 +52,11 @@ const CaseStudiesPage = () => {
       <div className="case-studies-page">
         <div className="container">
           <div className="page-header">
-            <h1>Our Proven Results</h1>
+            <h1>Our Work</h1>
             <p>
-              We don't just promise growth; we deliver it. Explore how we've
-              transformed businesses like yours.
+              A selection of live websites we have built for small businesses.
+              Each one is custom designed, mobile responsive and built to turn
+              visitors into customers.
             </p>
           </div>
 

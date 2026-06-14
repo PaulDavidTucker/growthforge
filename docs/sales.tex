@@ -1,0 +1,197 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+% Brand colours
+\definecolor{brand-dark}{HTML}{0B0B1A}
+\definecolor{brand-light}{HTML}{16162C}
+\definecolor{brand-primary}{HTML}{0077FF}
+\definecolor{brand-secondary}{HTML}{8A2BE2}
+\definecolor{brand-text}{HTML}{F0F0F0}
+\definecolor{brand-muted}{HTML}{A9A9B2}
+
+% Hyperlink styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=brand-primary,
+    urlcolor=brand-primary,
+    pdftitle={Reps and Revenue - Website Sales},
+    pdfauthor={Reps and Revenue}
+}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[C]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[brand-dark] (current page.north west) rectangle ([yshift=-2.2cm]current page.north east);
+        \node[anchor=west, inner sep=0pt] at ([xshift=2.5cm, yshift=-1.1cm]current page.north west) {\includegraphics[height=1.4cm]{Mainlogo.png}};
+        \node[anchor=east] at ([xshift=-2.5cm, yshift=-1.1cm]current page.north east) {\color{brand-text}\small\textbf{Website Sales}};
+    \end{tikzpicture}%
+}
+\fancyfoot[C]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[brand-light] (current page.south west) rectangle ([yshift=1cm]current page.south east);
+        \node[anchor=center] at ([yshift=0.5cm]current page.south) {\color{brand-muted}\small repsandrevenue.com \quad|\quad info@repsandrevenue.com};
+    \end{tikzpicture}%
+}
+\setlength{\headheight}{2.2cm}
+\setlength{\footskip}{1.4cm}
+
+% Section styling
+\titleformat{\section}
+    {\Large\bfseries\color{brand-primary}}
+    {\thesection.}{0.5em}{}[\color{brand-secondary}\titlerule]
+\titleformat{\subsection}
+    {\large\bfseries\color{brand-dark}}
+    {\thesubsection}{0.5em}{}
+
+\begin{document}
+
+% Title page
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+    \fill[brand-dark] (current page.south west) rectangle (current page.north east);
+    \fill[left color=brand-primary, right color=brand-secondary, opacity=0.15] (current page.south west) rectangle (current page.north east);
+\end{tikzpicture}
+\vspace*{4cm}
+\begin{center}
+    \includegraphics[width=5cm]{Mainlogo.png}\\[1.5cm]
+    {\Huge\bfseries\color{brand-text} Professional Websites}\\[0.4cm]
+    {\Huge\bfseries\color{brand-text} for Small Businesses}\\[1.2cm]
+    {\Large\color{brand-muted} £50 deposit \quad|\quad £250 full build}\\[0.3cm]
+    {\Large\color{brand-muted} Hosting, updates \& support included for one year}\\[2.5cm]
+    {\large\color{brand-text}\textbf{Sales Guide}\\[0.3cm]
+    \color{brand-muted} repsandrevenue.com}
+\end{center}
+\newpage
+
+\section{The Offer}
+
+Reps \& Revenue builds professional, mobile-ready websites for small businesses.
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{£50 deposit} to start the build (non-refundable).
+    \item We deliver a first version within \textbf{4-7 days}.
+    \item \textbf{Unlimited revisions} are included at no extra cost while we refine the design (within reason, at the team's discretion).
+    \item If you love the site and want to keep it, a further \textbf{£250} covers:
+    \begin{itemize}
+        \item Full website ownership
+        \item One year of hosting
+        \item Unlimited future assistance, maintenance and updates (for as long as we host the site)
+    \end{itemize}
+\end{itemize}
+
+No hidden fees, no surprise invoices - just a simple, transparent process.
+
+\section{What Is Included}
+
+\begin{itemize}[leftmargin=*]
+    \item Custom website design tailored to your business
+    \item Mobile and tablet responsive layout
+    \item Up to 5 core pages (e.g. Home, About, Services, Contact, Gallery)
+    \item Contact forms and social media links
+    \item Basic SEO setup
+    \item Unlimited revisions during the build
+    \item 12 months hosting, maintenance and updates
+    \item Friendly, ongoing support
+\end{itemize}
+
+\section{Examples of Our Work}
+
+Below are live websites we have built. These can be opened in a browser during the sales call to show prospects the quality and variety of our work.
+
+\subsection{Duston Group Services}
+\includegraphics[width=\linewidth]{screenshots/DustonGroupServices.png}
+
+\noindent \textbf{URL:} \url{https://duston-group-services.co.uk/}
+
+\subsection{Ezekiel Plumbing}
+\includegraphics[width=\linewidth]{screenshots/Plumber.png}
+
+\noindent \textbf{URL:} \url{https://ezekiel-plumbing.onrender.com}
+
+\subsection{The Strength Den}
+\includegraphics[width=\linewidth]{screenshots/strengthden.png}
+
+\noindent \textbf{URL:} \url{https://thestrengthden.onrender.com}
+
+\subsection{Crystal Leadership}
+\includegraphics[width=\linewidth]{screenshots/CrystalClarityLeadership.png}
+
+\noindent \textbf{URL:} \url{https://crystal-leadership.onrender.com}
+
+\subsection{Jake PT}
+\includegraphics[width=\linewidth]{screenshots/Jake-PT.png}
+
+\noindent \textbf{URL:} \url{https://jake-pt.onrender.com}
+
+\subsection{Simeon Nutrition}
+\includegraphics[width=\linewidth]{screenshots/Simeon-Nutrition.png}
+
+\noindent \textbf{URL:} \url{https://simeon-nutrition.onrender.com}
+
+\subsection{Micro Ink}
+\includegraphics[width=\linewidth]{screenshots/Microink.png}
+
+\noindent \textbf{URL:} \url{https://www.microink.co.uk/}
+
+\section{How the Sales Call Works}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Introduction} --- confirm the prospect's business, goals and current online presence.
+    \item \textbf{Show the examples} above (and any templates) to demonstrate our style and quality.
+    \item \textbf{Explain the process} --- discovery, deposit, build, revisions, final payment.
+    \item \textbf{Close on the £50 deposit} to secure their build slot.
+\end{enumerate}
+
+\section{Deposit and Payment Terms}
+
+\begin{itemize}[leftmargin=*]
+    \item The \textbf{£50 deposit is non-refundable}. It covers the initial design and build work.
+    \item We include unlimited revisions at no extra cost while the site is being developed, provided they are reasonable and within scope.
+    \item The \textbf{£250 completion fee} is due when the client confirms they want to keep the site and go live.
+    \item The completion fee includes one year of hosting, maintenance, updates and support.
+\end{itemize}
+
+\section{Bespoke and Upsell Options}
+
+For clients with bigger plans we offer custom solutions including:
+
+\begin{itemize}[leftmargin=*]
+    \item CRM integration
+    \item Conversational chatbots
+    \item Advanced automations and tooling
+    \item Booking, membership or e-commerce functionality
+    \item Multi-site or white-label solutions
+\end{itemize}
+
+\noindent Ask the sales team for a custom quote.
+
+\section{Next Steps}
+
+\begin{enumerate}[leftmargin=*]
+    \item Confirm the client is happy to proceed.
+    \item Take the £50 deposit.
+    \item Send the \textit{Reps \& Revenue Website Onboarding} document and form link.
+    \item Schedule the onboarding call.
+\end{enumerate}
+
+\vfill
+\begin{center}
+    \color{brand-muted}\small
+    For questions or custom quotes, contact us at \href{mailto:info@repsandrevenue.com}{info@repsandrevenue.com}.
+\end{center}
+
+\end{document}

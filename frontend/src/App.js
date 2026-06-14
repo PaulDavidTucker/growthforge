@@ -13,6 +13,7 @@ import HomePage from "./pages/js/HomePage";
 import AboutPage from "./pages/js/AboutPage";
 import PackagesPage from "./pages/js/PackagesPage";
 import ContactPage from "./pages/js/ContactPage";
+import OnboardingPage from "./pages/js/OnboardingPage";
 import BlogListPage from "./pages/js/BlogListPage";
 import BlogPostPage from "./pages/js/BlogPostPage";
 import CaseStudiesPage from "./pages/js/CaseStudiesPage";
@@ -26,9 +27,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />g
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/packages" element={<PackagesPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/onboarding" element={<OnboardingPage />} />
           <Route path="/blog" element={<BlogListPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />

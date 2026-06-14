@@ -11,7 +11,8 @@ const Footer = () => {
         {/* Column 1: About */}
         <div className="footer-about">
           <h3>Reps &amp; Revenue</h3>
-          <p>Automated systems for business growth.</p>
+          <p>Professional websites for small businesses.</p>
+          <a href="/onboarding">Client Onboarding</a>
           <a
             href="/static/Reps-and-Revenue-Ts-and-Cs.pdf"
             download="terms-and-conditions.pdf"

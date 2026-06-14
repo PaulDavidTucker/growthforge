@@ -5,30 +5,30 @@ const OurProcess = () => {
   return (
     <section className="process-section">
       <div className="container">
-        <h2 className="section-title">Our Path to Your Success</h2>
+        <h2 className="section-title">Our Path to Your New Website</h2>
         <div className="process-grid">
           <div className="process-step">
             <div className="step-number">01</div>
-            <h3>Discovery &amp; Strategy</h3>
+            <h3>Discovery &amp; Deposit</h3>
             <p>
-              We dive deep into your brand, goals, and audience to craft a
-              bespoke strategy for maximum impact.
+              We discuss your business, show you templates and examples, then
+              start your build for a £50 deposit.
             </p>
           </div>
           <div className="process-step">
             <div className="step-number">02</div>
-            <h3>Execution &amp; Build</h3>
+            <h3>Design &amp; Build</h3>
             <p>
-              Our expert team builds your custom funnels, chatbots, and
-              automation sequences with precision and care.
+              Our team designs and builds your mobile-ready site, matching your
+              branding, colours, fonts and imagery.
             </p>
           </div>
           <div className="process-step">
             <div className="step-number">03</div>
-            <h3>Launch &amp; Optimize</h3>
+            <h3>Revisions, Launch &amp; Support</h3>
             <p>
-              We deploy, test, and relentlessly optimize every component, using
-              data to drive decisions and maximize ROI.
+              We show you the site on a call, make unlimited revisions and go
+              live with one year of hosting and support included.
             </p>
           </div>
         </div>

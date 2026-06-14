@@ -17,13 +17,13 @@ const CTASection = () => {
   return (
     <section className="cta-section">
       <div className="container">
-        <h2>Ready to Scale Your Business?</h2>
+        <h2>Ready for Your New Website?</h2>
         <p>
-          Let's build your automated growth engine. Schedule a free,
-          no-obligation strategy call with our experts today.
+          Book a free sales call and we will walk you through our templates,
+          examples and pricing, no obligation, no pressure.
         </p>
         <button onClick={handleCTAClick} className="btn">
-          Book Your Free Strategy Call
+          Book Your Free Sales Call
         </button>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import re
 from django.core.validators import RegexValidator
 from rest_framework import serializers
-from .models import Inquiry
+from .models import Inquiry, OnboardingSubmission
 
 
 class InquirySerializer(serializers.ModelSerializer):
@@ -44,6 +44,45 @@ class InquirySerializer(serializers.ModelSerializer):
         """Validate email format."""
         email = value.lower().strip()
         # Block common disposable email domains
+        disposable_domains = ['tempmail.com', '10minutemail.com', 'guerrillamail.com']
+        domain = email.split('@')[-1]
+        if domain in disposable_domains:
+            raise serializers.ValidationError("Please use a permanent email address.")
+        return email
+
+
+class OnboardingSubmissionSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(
+        max_length=100,
+        validators=[
+            RegexValidator(
+                regex=r'^[\w\s\-\'\.]+$',
+                message='Name can only contain letters, numbers, spaces, hyphens, apostrophes, and periods.'
+            )
+        ]
+    )
+    email = serializers.EmailField()
+    business_name = serializers.CharField(max_length=200, required=False, allow_blank=True)
+    current_website = serializers.URLField(required=False, allow_blank=True)
+    branding_notes = serializers.CharField(required=False, allow_blank=True)
+    colour_preferences = serializers.CharField(required=False, allow_blank=True)
+    layout_pages = serializers.CharField(required=False, allow_blank=True)
+    font_preferences = serializers.CharField(required=False, allow_blank=True)
+    image_notes = serializers.CharField(required=False, allow_blank=True)
+    additional_features = serializers.CharField(required=False, allow_blank=True)
+
+    class Meta:
+        model = OnboardingSubmission
+        fields = '__all__'
+        read_only_fields = ('created_at',)
+
+    def validate_name(self, value):
+        if len(value.strip()) < 2:
+            raise serializers.ValidationError("Name must be at least 2 characters long.")
+        return value.strip()
+
+    def validate_email(self, value):
+        email = value.lower().strip()
         disposable_domains = ['tempmail.com', '10minutemail.com', 'guerrillamail.com']
         domain = email.split('@')[-1]
         if domain in disposable_domains:

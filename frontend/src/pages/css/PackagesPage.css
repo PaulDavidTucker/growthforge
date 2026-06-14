@@ -61,6 +61,50 @@
     color: var(--text-primary);
 }
 
+/* --- How It Works / FAQ --- */
+.pricing-faq {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.pricing-faq h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+
+.faq-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.faq-item p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.packages-download {
+    text-align: center;
+    padding: 2rem 0 4rem;
+    color: var(--text-secondary);
+}
+
+.packages-download a {
+    color: var(--primary-accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.packages-download a:hover {
+    text-decoration: underline;
+}
+
 /* --- Most Popular Badge --- */
 .package-card.popular {
     transform: scale(1.05);

@@ -91,6 +91,75 @@
     border: 1px solid rgba(0, 119, 255, 0.5);
 }
 
+/* --- Pricing Teaser Section --- */
+.pricing-teaser {
+    padding: 6rem 0;
+    background-color: var(--background-light);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+
+.pricing-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-card .price {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primary-accent);
+    margin: 0.5rem 0;
+}
+
+.pricing-card .description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.pricing-card li {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.pricing-card.popular {
+    transform: scale(1.03);
+    border-color: var(--primary-accent);
+}
+
+.pricing-note {
+    text-align: center;
+    margin-top: 3rem;
+    color: var(--text-secondary);
+}
+
+.pricing-note a {
+    color: var(--primary-accent);
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 4rem;

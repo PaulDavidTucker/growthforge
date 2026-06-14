@@ -27,6 +27,7 @@ def generate_sitemap():
         '/case-studies',
         '/blog',
         '/contact',
+        '/onboarding',
     ]
 
     print("Fetching dynamic URLs from the database...")

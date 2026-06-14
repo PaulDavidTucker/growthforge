@@ -1,0 +1,173 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+% Brand colours
+\definecolor{brand-dark}{HTML}{0B0B1A}
+\definecolor{brand-light}{HTML}{16162C}
+\definecolor{brand-primary}{HTML}{0077FF}
+\definecolor{brand-secondary}{HTML}{8A2BE2}
+\definecolor{brand-text}{HTML}{F0F0F0}
+\definecolor{brand-muted}{HTML}{A9A9B2}
+
+% Hyperlink styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=brand-primary,
+    urlcolor=brand-primary,
+    pdftitle={Reps and Revenue - Website Onboarding},
+    pdfauthor={Reps and Revenue}
+}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[C]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[brand-dark] (current page.north west) rectangle ([yshift=-2.2cm]current page.north east);
+        \node[anchor=west, inner sep=0pt] at ([xshift=2.5cm, yshift=-1.1cm]current page.north west) {\includegraphics[height=1.4cm]{Mainlogo.png}};
+        \node[anchor=east] at ([xshift=-2.5cm, yshift=-1.1cm]current page.north east) {\color{brand-text}\small\textbf{Website Onboarding}};
+    \end{tikzpicture}%
+}
+\fancyfoot[C]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[brand-light] (current page.south west) rectangle ([yshift=1cm]current page.south east);
+        \node[anchor=center] at ([yshift=0.5cm]current page.south) {\color{brand-muted}\small repsandrevenue.com \quad|\quad info@repsandrevenue.com};
+    \end{tikzpicture}%
+}
+\setlength{\headheight}{2.2cm}
+\setlength{\footskip}{1.4cm}
+
+% Section styling
+\titleformat{\section}
+    {\Large\bfseries\color{brand-primary}}
+    {\thesection.}{0.5em}{}[\color{brand-secondary}\titlerule]
+\titleformat{\subsection}
+    {\large\bfseries\color{brand-dark}}
+    {\thesubsection}{0.5em}{}
+
+\begin{document}
+
+% Title page
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+    \fill[brand-dark] (current page.south west) rectangle (current page.north east);
+    \fill[left color=brand-primary, right color=brand-secondary, opacity=0.15] (current page.south west) rectangle (current page.north east);
+\end{tikzpicture}
+\vspace*{4cm}
+\begin{center}
+    \includegraphics[width=5cm]{Mainlogo.png}\\[1.5cm]
+    {\Huge\bfseries\color{brand-text} Welcome to Reps \& Revenue}\\[0.8cm]
+    {\Large\color{brand-muted} Website Onboarding Guide}\\[2.5cm]
+    {\large\color{brand-text}\textbf{Your new website is closer than you think.}\\[0.6cm]
+    \color{brand-muted} repsandrevenue.com}
+\end{center}
+\newpage
+
+\section{How Our Workflow Works}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Onboarding call} - We confirm what you need, the style you like and any specific features.
+    \item \textbf{Deposit} - We take the £50 deposit and add your build to our queue.
+    \item \textbf{Templates and ideas} - We show you templates and live examples to narrow down what you want.
+    \item \textbf{We deliver what you want} - Your site is built to match your brand, content and goals.
+    \item \textbf{Any revisions} - We make unlimited revisions (within reason) until you are happy.
+    \item \textbf{Full payment} - If you want the site live, the £250 completion fee covers ownership, hosting for one year and ongoing support.
+\end{enumerate}
+
+\section{Things to Think About}
+
+To help us build the perfect site, please gather your thoughts and assets on the following.
+
+\subsection{Branding}
+Do you have an existing logo, brand guidelines or a particular feeling you want the site to convey? Examples: modern and clean, bold and energetic, calm and premium, local and trustworthy.
+
+\subsection{Colours}
+What colours represent your brand? If you do not have exact hex codes, share examples of websites, images or palettes you like.
+
+\subsection{Layout}
+What pages do you need? Common examples:
+\begin{itemize}[leftmargin=*]
+    \item Home, About, Services, Contact
+    \item Home, About, Classes / Booking, Contact
+    \item Home, Portfolio, Services, Testimonials, Contact
+\end{itemize}
+
+\subsection{Fonts}
+Do you have a preferred font style? Examples: classic serif, clean sans-serif, bold display font, handwritten feel.
+
+\subsection{Images}
+Good photos make a huge difference. Please provide:
+\begin{itemize}[leftmargin=*]
+    \item Logo files (PNG, SVG or PDF)
+    \item Photos of your work, team or premises
+    \item Any icons, graphics or videos you want included
+\end{itemize}
+
+\section{The Onboarding Form}
+
+Please complete the onboarding form linked below. It asks for the decisions above and includes sections to upload your media.
+
+\begin{center}
+\fcolorbox{brand-primary}{brand-light}{%
+    \parbox{0.85\textwidth}{%
+        \centering
+        \vspace{0.5em}
+        \textbf{Onboarding Form}\\[0.3em]
+        \url{https://forms.repsandrevenue.com/onboarding}\\[0.3em]
+        \small (Replace this placeholder with your actual form URL.)
+        \vspace{0.5em}
+    }%
+}
+\end{center}
+
+\noindent If we do not receive the completed form, we will build a generic site using the information from our onboarding call so we can still complete our side of the £50 agreement.
+
+\section{Timeline}
+
+We aim to deliver your first website draft within \textbf{4-7 days} of receiving the deposit and onboarding information. We usually beat that deadline.
+
+\section{On a Budget?}
+
+We get it - cash flow matters. Speak to our sales team about flexible plans that keep your project moving without stretching your budget.
+
+\section{Have Bigger Plans?}
+
+We can build far more than brochure sites. If you have bigger ideas, talk to our sales team about custom solutions such as:
+
+\begin{itemize}[leftmargin=*]
+    \item CRM integration
+    \item Conversational chatbots
+    \item Advanced tooling and automations
+    \item Membership areas or client portals
+    \item Booking and appointment systems
+    \item E-commerce and product catalogues
+\end{itemize}
+
+\section{Contact Us}
+
+Questions at any stage? Reach out and we will be happy to help.
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Email:} \href{mailto:info@repsandrevenue.com}{info@repsandrevenue.com}
+    \item \textbf{Website:} \url{https://repsandrevenue.com}
+\end{itemize}
+
+\vfill
+\begin{center}
+    \color{brand-muted}\small
+    Thank you for choosing Reps \& Revenue. We are excited to build your new website.
+\end{center}
+
+\end{document}

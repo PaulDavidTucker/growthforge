@@ -57,7 +57,7 @@ const ContactPage = () => {
         {/* 🔹 Contact info block */}
         <div className="contact-info">
           <p>
-            You can also reach us directly at{" "}
+            Ready for a new website? Send us a message or email us directly at{" "}
             <a id="email-link" href="mailto:info@repsandrevenue.com">
               info@repsandrevenue.com
             </a>

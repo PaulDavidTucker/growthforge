@@ -72,7 +72,7 @@ const Header = () => {
             About
           </NavLink>
           <NavLink to="/packages" activeClassName="active" onClick={closeMenu}>
-            Packages
+            Pricing
           </NavLink>
           <NavLink
             to="/case-studies"

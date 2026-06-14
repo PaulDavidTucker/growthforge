@@ -28,25 +28,22 @@ const AboutPage = () => {
       <div className="about-page container">
         <h1>About Reps &amp; Revenue</h1>
         <p className="about-intro">
-          We are a team of digital marketers, developers, and lawyers dedicated
-          to helping small businesses achieve exponential growth through
-          technology and automation. Reps &amp; Revenue is a small business
-          founded by three passionate individuals combining their expertise. We
-          partner with ambitious businesses to generate them revenue without the
-          heavy lifting.
+          We are a small team of designers and developers dedicated to helping
+          small businesses get online with professional, affordable websites.
+          Reps &amp; Revenue is built around a simple idea: high-quality web
+          design should not come with an agency price tag or a months-long
+          wait.
         </p>
         <div className="mission-section">
           <h2>Our Mission</h2>
           <p>
             Our mission is to level the playing field for small businesses by
-            providing them with the same powerful sales and automation tools
-            that large enterprises use. We believe in the power of smart systems
-            to create sustainable growth and free up entrepreneurs to focus on
-            innovation. Small businesses are the cornerstone of civilisation,
-            with individuals working hard to juggle the pressures of scaling
-            something they care deeply about. We don't just provide a service,
-            we align ourselves fully with our client's objectives, treating
-            their goals as our own.
+            giving them the same polished online presence that larger companies
+            enjoy. We believe every trade, coach, consultant and creative
+            deserves a website they are proud to share, one that brings in
+            customers and reflects the quality of their work. We do not just
+            provide a service; we align ourselves with our clients' objectives,
+            treating their goals as our own.
           </p>
         </div>
         <Testimonials />

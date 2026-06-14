@@ -60,6 +60,16 @@
     transform: scale(1.2);
 }
 
+.footer-about a {
+    color: #aaa;
+    margin-right: 0.75em;
+    white-space: nowrap;
+}
+
+.footer-about a#priv {
+    margin-left: 0.5em;
+}
+
 /* --- Responsive Design for Footer --- */
 @media (max-width: 992px) {
     .footer-grid {
@@ -86,6 +96,7 @@
         grid-template-columns: 1fr; /* Stack everything on mobile */
         grid-template-areas: initial; /* Reset areas */
         text-align: center;
+        gap: 2rem;
     }
 
     .footer-about,
@@ -95,16 +106,14 @@
         margin: 0 auto; /* Center the content */
     }
 
+    .footer-about a,
+    .footer-about a#priv {
+        display: block;
+        margin: 0.5rem 0;
+        white-space: normal;
+    }
+
     .social-links {
         justify-content: center; /* Center the social icons */
     }
-}
-
-.footer-about a {
-    color: #aaa;
-    margin-right: 0.75em;
-    white-space: nowrap;
-}
-a#priv {
-    margin-left: 0.5em;
 }
